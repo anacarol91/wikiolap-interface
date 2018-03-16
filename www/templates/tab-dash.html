@@ -1,0 +1,33 @@
+<ion-view view-title="Meus Eventos">
+  <ion-content padding-vertical has-bouncing="true">
+    <ion-refresher on-refresh="refreshEventos()" pulling-icon="false"></ion-refresher>
+
+    <h3>Hoje</h3>
+    <ion-list id="events-card-list">
+      <a class="card item item-thumbnail-left tappable" type="item-text-wrap" ng-repeat="evento in eventos | orderBy: 'name'" href="#/tab/dash/{{evento.id}}">
+        <img ng-src="{{evento.avatar}}"><br/>
+        <h2 ng-bind="evento.name"></h2>
+      </a>
+    </ion-list>
+
+    <h3>Sábado</h3>
+    <ion-list id="events-card-list">
+      <a class="card item item-thumbnail-left tappable" type="item-text-wrap" ng-repeat="evento in eventos | orderBy: 'name'" href="#/tab/dash/{{evento.id}}">
+        <img ng-src="{{evento.avatar}}"><br/>
+        <h2 ng-bind="evento.name"></h2>
+      </a>
+    </ion-list>
+
+<!--ion-list>
+    <div ng-repeat="groupedPair in groupedPairs track by groupedPair[0]">
+        <ion-item class="item-divider">
+            {{groupedPair[0]}}
+        </ion-item>
+        <ion-item ng-repeat="item in groupedPair[1] track by item.id">
+            {{item.name}}
+        </ion-item>
+    </div>
+</ion-list-->
+
+  </ion-content>
+</ion-view>

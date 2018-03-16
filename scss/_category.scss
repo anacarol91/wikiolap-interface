@@ -1,0 +1,41 @@
+.category-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#category-card-list .card {
+	@include box-shadow($category-card-shadow);
+	padding: 0;
+	margin: $category-card-margin;
+	height: $category-card-height;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 100%;
+  text-align: center;
+  background-color: $category-card-background;
+  @extend .card-basic;
+
+  &.activated {
+		@extend .cancel-border;
+		@include box-shadow($category-card-shadow-click);
+		background-color: $category-card-background;
+  }
+
+  img {
+  	width: 100%;
+  	height: 100%;
+    max-height: $category-card-height;
+    opacity: 0.6;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+}
