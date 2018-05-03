@@ -1,0 +1,11 @@
+<h2>Pesquisas Recentes</h2>
+<a class="card tappable" ng-repeat="item in list | orderBy: 'id' | limitTo: 3" href="#/tab/explore/v/{{item.id}}">
+	<div class="card-title" ng-bind="item.name"></div>
+</a>
+
+<hr>
+
+<h2>{{list.length}} visualizações encontradas</h2>
+<a class="card tappable" ng-repeat="item in list | orderBy: 'name' | filter: $parent.search as results" href="#/tab/explore/v/{{item.id}}">
+	<div class="card-title" ng-bind="item.name"></div>
+</a>

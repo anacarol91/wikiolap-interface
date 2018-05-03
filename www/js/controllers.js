@@ -1,77 +1,69 @@
-angular.module('starter.controllers', [])
+controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users) {
 
-.controller('DashCtrl', function($scope, $state, $ionicPopup, IonicClosePopupService, Estabelecimentos) {
+  $scope.$on('$ionicView.enter', function(e) {
 
-  $scope.eventos = Estabelecimentos.all();
-  //$scope.groupedPairs = _.chain(eventos).groupBy('date').pairs().sortBy(0).value();
+    $scope.search = {};
 
-  $scope.refreshEventos = function () {
-    $scope.eventos = Estabelecimentos.all();
+    $scope.tags = Tags.all();
+    $scope.datasets = Datasets.all();
+    $scope.visualizations = Visualizations.all();
+    $scope.notifications = Notifications.all();
+    $scope.users = Users.all();
+
+    $scope.tag = Tags.get($stateParams.tagID);
+    $scope.visualization = Visualizations.get($stateParams.visualizationID);
+    $scope.dataset = Datasets.get($stateParams.datasetID);
+    $scope.user = Users.get($stateParams.userID);
+
+  });
+
+  $scope.getTag = (itemID) => {
+    $scope.tag = Tags.get(itemID);
+  }
+
+  $scope.refreshAll = function () {
+    $scope.tags = Tags.all();
+    $scope.datasets = Datasets.all();
+    $scope.visualizations = Visualizations.all();
     $scope.$broadcast('scroll.refreshComplete');
   }
 
-  $scope.change = function(){
-    $state.go('tab.categorias');
-  }
-
-  $scope.testAlert = function() {
-    var alertPopup = $ionicPopup.alert({
-      title: 'Alert popup',
-      template: 'Tap outside it to close it'
-    });
-    IonicClosePopupService.register(alertPopup); // condição para ionic-close-popup
-  };
-})
-
-.controller('CategoriasCtrl', function($scope, Categorias, Estabelecimentos) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.categorias = Categorias.all();
-  $scope.estabelecimentos = Estabelecimentos.all();
-
-  $scope.refreshCategorias = function () {
-    $scope.categorias = Categorias.all();
-    $scope.$broadcast('scroll.refreshComplete');
-  }
-
-  $scope.refreshEstabelecimentos = function () {
-    $scope.estabelecimentos = Estabelecimentos.all();
+  $scope.refreshNotifications = function () {
+    $scope.notifications = Notifications.all();
     $scope.$broadcast('scroll.refreshComplete');
   }
 
   $scope.remove = function(categoria) {
     Categorias.remove(categoria);
   };
-})
 
-.controller('EstabelecimentosCtrl', function($scope, $state, $stateParams, Estabelecimentos) {
-  $scope.categoria = Estabelecimentos.getCategoria($stateParams.categoriaId);
-  $scope.search = {};
-
-  $scope.estabelecimentos = Estabelecimentos.all();
-
-  $scope.refreshEstabelecimentos = function () {
-    $scope.estabelecimentos = Estabelecimentos.all();
-    $scope.$broadcast('scroll.refreshComplete');
+  $scope.openSearch = function(){
+    $state.go('tab.search');
   }
 
-  $scope.change = function(){
-    $state.go('tab.categorias');
-  }
-
-  $scope.remove = function(categoria) {
-    Estabelecimentos.remove(categoria);
+   $scope.testAlert = function() {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Alert popup',
+      template: 'Tap outside it to close it'
+    });
+    IonicClosePopupService.register(alertPopup); // condição para ionic-close-popup
   };
-})
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+  // $ionicModal.fromTemplateUrl('my-modal.html', {
+  //   scope: $scope,
+  //   animation: 'slide-in-up'
+  // }).then(function(modal) {
+  //   $scope.modal = modal;
+  // });
+  // $scope.openModal = function() {
+  //   $scope.modal.show();
+  // };
+  // $scope.closeModal = function() {
+  //   $scope.modal.hide();
+  // };
+  // // Cleanup the modal when we're done with it!
+  // $scope.$on('$destroy', function() {
+  //   $scope.modal.remove();
+  // });
 });
+

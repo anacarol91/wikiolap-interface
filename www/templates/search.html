@@ -1,0 +1,64 @@
+<ion-view view-title="Pesquisar">
+
+  <ion-nav-title>
+
+    <!-- search box -->
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" ng-model="$parent.search.name" placeholder="Pesquisar">
+      </label>
+      <button class="button button-clear" ng-click="$parent.search='';">
+        Cancel
+      </button>
+    </div>
+  </ion-nav-title>
+
+  <!-- content -->
+  <ion-content padding-vertical has-bouncing="true">
+    <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+    <tag-search-list list="tags"></tag-search-list>
+
+     <visualization-search-list list="visualizations"></visualization-search-list>
+
+     <dataset-search-list list="datasets"></dataset-search-list>
+
+    <!-- datasets -->
+    <!-- <ion-list ng-show="results.length === 0"> -->
+    <!-- <ion-list>
+      <ion-item class="item-thumbnail-left" ng-repeat="dataset in datasets | orderBy: 'name' | filter: $parent.search as results2" type="item-text-wrap" href="#/tab/categorias/{{categoria.id}}">
+        <img ng-src="{{dataset.img}}">
+        <h2 ng-bind="dataset.name"></h2>
+        <p ng-bind="dataset.description"></p>
+    </ion-list> -->
+
+    <!-- visualization -->
+    <!-- <ion-list ng-show="results.length === 0"> -->
+    <!-- <ion-list>
+      <ion-item class="item-thumbnail-left" ng-repeat="visualization in visualizations | orderBy: 'name' | filter: $parent.search as results2" type="item-text-wrap" href="#/tab/categorias/{{categoria.id}}">
+        <img ng-src="{{visualization.img}}">
+        <h2 ng-bind="visualization.name"></h2>
+        <p ng-bind="visualization.description"></p>
+    </ion-list> -->
+
+    <!-- categorias -->
+    <!-- <div id="category-card-list" class="category-list">
+      <a class="card tappable" ng-repeat="categoria in categorias | orderBy: 'name' | filter: $parent.search as results" href="#/tab/categorias/{{categoria.id}}">
+        <img ng-src="{{categoria.icon}}"><br/>
+        <div class="card-title" ng-bind="categoria.name"></div>
+      </a>
+    </div> -->
+
+    <!-- estabelecimentos -->
+    <!-- <ion-list ng-show="results.length === 0">
+      <ion-item class="item-thumbnail-left" ng-repeat="estabelecimento in estabelecimentos | orderBy: '-checkin' | filter: $parent.search as results2" type="item-text-wrap" href="#/tab/categorias/{{categoria.id}}">
+        <img ng-src="{{estabelecimento.avatar}}">
+        <h2 ng-bind="estabelecimento.name"></h2>
+        <p ng-bind="estabelecimento.checkin"></p>
+    </ion-list> -->
+
+    <!-- no results -->
+    <ion-item ng-if="results.length === 0 && results2.length === 0">No results found </ion-item>
+
+  </ion-content>
+</ion-view>

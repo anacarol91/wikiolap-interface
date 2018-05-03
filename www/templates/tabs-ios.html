@@ -5,23 +5,28 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-only tabs-light">
 
-  <!-- Dashboard Tab -->
-  <ion-tab icon-off="ion-home" icon-on="ion-home" href="#/tab/dash">
-    <ion-nav-view name="tab-dash"></ion-nav-view>
+  <!-- Timeline Tab -->
+  <ion-tab title="Timeline" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/timeline">
+    <ion-nav-view name="tab-timeline"></ion-nav-view>
   </ion-tab>
 
-  <!-- Search Tab -->
-  <ion-tab icon-off="ion-ios-search-strong" icon-on="ion-ios-search-strong" href="#/tab/categorias">
-    <ion-nav-view name="tab-categorias"></ion-nav-view>
+  <!-- Explore Tab -->
+  <ion-tab title="Pesquisa" icon-off="ion-ios-search" icon-on="ion-ios-search-strong" href="#/tab/explore">
+    <ion-nav-view name="tab-explore"></ion-nav-view>
   </ion-tab>
 
-  <!-- Stats Tab -->
-  <ion-tab icon-off="ion-arrow-graph-up-right" icon-on="ion-arrow-graph-up-right" href="#/tab/trend">
-    <ion-nav-view name="tab-trend"></ion-nav-view>
+  <!-- Visualization Tab -->
+  <ion-tab title="Visualização" icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" href="#/tab/visualization">
+    <ion-nav-view name="tab-visualization"></ion-nav-view>
   </ion-tab>
 
-  <!-- Settings Tab -->
-  <ion-tab icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+  <!-- Notification Tab -->
+  <ion-tab title="Notificação" icon-off="ion-ios-bell-outline" icon-on="ion-ios-bell" href="#/tab/notification">
+    <ion-nav-view name="tab-notification"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Account Tab -->
+  <ion-tab title="Conta" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 

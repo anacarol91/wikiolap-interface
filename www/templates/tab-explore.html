@@ -1,0 +1,23 @@
+<ion-view view-title="Pesquisar">
+
+  <ion-nav-title>
+    <!-- search box -->
+    <div class="bar bar-header item-input-inset" ng-click="openSearch()">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Pesquisar">
+      </label>
+    </div>
+  </ion-nav-title>
+
+  <!-- content -->
+  <ion-content padding-vertical has-bouncing="true">
+    <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+    <tag-search-list list="tags"></tag-search-list>
+
+     <visualization-search-list list="visualizations"></visualization-search-list>
+
+     <dataset-search-list list="datasets"></dataset-search-list>
+
+  </ion-content>
+</ion-view>

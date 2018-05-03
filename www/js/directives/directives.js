@@ -43,5 +43,55 @@ angular.module('starter.directives', ['ionic'])
   }
 })
 
+.directive('visualizationCard', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'js/directives/templates/visualization_card.html',
+    scope: {
+        item: "=item"
+    }
+  };
+})
+
+.directive('tagSearchList', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'js/directives/templates/tags_search_list.html',
+    scope:{
+        list: "=list"
+    }
+  };
+})
+
+.directive('visualizationSearchList', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'js/directives/templates/visualization_search_list.html',
+    scope:{
+        list: "=list"
+    }
+  };
+})
+
+.directive('datasetSearchList', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'js/directives/templates/dataset_search_list.html',
+    scope:{
+        list: "=list"
+    }
+  };
+})
+
+.directive('userSearchList', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'js/directives/templates/user_search_list.html',
+    scope:{
+        list: "=list"
+    }
+  };
+})
+
 
 

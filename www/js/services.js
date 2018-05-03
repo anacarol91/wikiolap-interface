@@ -1,54 +1,40 @@
-angular.module('starter.services', [])
-
-.factory('Categorias', function() {
-  // Might use a resource here that returns a JSON array
+services.factory('Tags', function() {
 
   // Some fake testing data
-  var categorias = [{
+  var tags = [{
     id: 0,
-    name: 'LGBT',
-    icon: 'img/foto-lgbt.jpg',
-    estabelecimentos: [
-    {
-      id: 1,
-      name: 'Dduck Club',
-      avatar: 'img/dduck.jpg',
-      checkin: '1000'
-    },{
-      id: 2,
-      name: 'Royalty Club',
-      avatar: 'img/royalty.jpg',
-      checkin: '1010'
+    name: '#saude',
+    color: '',
+    datasets: [{}],
+    visualizations: [{
+      id: 0,
+      name: '0'
     }]
   }, {
     id: 1,
-    name: 'Rock',
-    icon: 'img/foto-rock.JPG'
+    name: '#imposto',
+    color: ''
   }, {
     id: 2,
-    name: 'Pop',
-    icon: 'img/foto-pop.jpg'
+    name: '#educação',
+    color: ''
   }, {
     id: 3,
-    name: 'Sertanejo',
-    icon: 'img/foto-sertanejo.jpg'
-  }, {
-    id: 4,
-    name: 'Espetinho',
-    icon: 'img/foto-espetinho.jpg'
+    name: '#turismo',
+    color: ''
   }];
 
   return {
     all: function() {
-      return categorias;
+      return tags;
     },
-    remove: function(categoria) {
-      categorias.splice(categorias.indexOf(categoria), 1);
+    remove: function(tag) {
+      tags.splice(tags.indexOf(tag), 1);
     },
-    get: function(categoriaId) {
-      for (var i = 0; i < categorias.length; i++) {
-        if (categorias[i].id === parseInt(categoriaId)) {
-          return categorias[i];
+    get: function(tagID) {
+      for (var i = 0; i < tags.length; i++) {
+        if (tags[i].id === parseInt(tagID)) {
+          return tags[i];
         }
       }
       return null;
@@ -56,104 +42,274 @@ angular.module('starter.services', [])
   };
 })
 
-.factory('Estabelecimentos', function() {
+.factory('Datasets', function() {
 
   // Some fake testing data
-  var estabelecimentos = [{
+  var datasets = [{
     id: 0,
-    name: 'Dduck Club',
-    avatar: 'img/dduck.png',
-    categoria: {
-      id: 0,
-      name: 'LGBT',
-      icon: 'img/lgbt.png',
-    },
-    checkin: '1000'
+    name: 'dataset0',
+    img: '',
+    description:'',
+    creation: '',
+    data: '',
+    user: {},
+    tags: {},
+    visualizations: [{}]
   },{
     id: 1,
-    name: 'Royalty Club',
-    avatar: 'img/royalty.png',
-    categoria: {
-      id: 0,
-      name: 'LGBT',
-      icon: 'img/lgbt.png',
-    },
-    checkin: '1010'
+    name: 'dataset1',
+    img: '',
+    description:'',
+    creation: '',
+    data: '',
+    user: {},
+    tags: {},
+    visualizations: [{}]
   },
   {
     id: 2,
-    name: 'Beb\'s Bar',
-    avatar: 'img/bebs.jpg',
-    categoria: {
-      id: 4,
-      name: 'Espetinho',
-      icon: 'img/espetinho.png',
-    },
-    checkin: '2010'
+    name: 'dataset2',
+    img: '',
+    description:'',
+    creation: '',
+    data: '',
+    user: {},
+    tags: {},
+    visualizations: [{}]
   },
   {
     id: 3,
-    name: 'Wood\'s',
-    avatar: 'img/woods.jpg',
-    categoria: {
-      id: 3,
-      name: 'Sertanejo',
-      icon: 'img/sertanejo.png',
-    },
-    checkin: '100'
+    name: 'dataset3',
+    img: '',
+    description:'',
+    creation: '',
+    data: '',
+    user: {},
+    tags: {},
+    visualizations: [{}]
   },
   {
     id: 4,
-    name: 'Club Chalezinho',
-    avatar: 'img/chale.jpg',
-    categoria: {
-      id: 2,
-      name: 'Pop',
-      icon: 'img/pop.png',
-    },
-    checkin: '1810'
-  },
-  {
-    id: 5,
-    name: 'Jack Rock Bar',
-    avatar: 'img/jack.jpg',
-    categoria: {
-      id: 1,
-      name: 'Rock',
-      icon: 'img/rock.png',
-    },
-    checkin: '1910'
-  },
-  ]
+    name: 'dataset3',
+    img: '',
+    description:'',
+    creation: '',
+    data: '',
+    user: {},
+    tags: {},
+    visualizations: [{}]
+  }];
 
   return {
     all: function() {
-      return estabelecimentos;
+      return datasets;
     },
 
-    remove: function(estabelecimento) {
-      estabelecimentos.splice(estabelecimentos.indexOf(estabelecimento), 1);
+    remove: function(dataset) {
+      datasets.splice(datasets.indexOf(dataset), 1);
     },
 
-    getEstabelecimento: function(estabelecimentoId) {
-      for (var i = 0; i < estabelecimentos.length; i++) {
-        if (estabelecimentos[i].id === parseInt(estabelecimentoId)) {
-          return estabelecimentos[i];
+    get: function(datasetID) {
+      for (var i = 0; i < datasets.length; i++) {
+        if (datasets[i].id === parseInt(datasetID)) {
+          return datasets[i];
         }
       }
       return null;
     },
 
-    getCategoria: function(categoriaId) {
-      var categoria=[];
+    // getCategoria: function(categoriaId) {
+    //   var categoria = [];
 
-      for (var i = 0; i < estabelecimentos.length; i++) {
-        if (estabelecimentos[i].categoria.id === parseInt(categoriaId)) {
-          categoria.push(estabelecimentos[i]);
-        }
-      }
-      return categoria;
-    }
+    //   for (var i = 0; i < estabelecimentos.length; i++) {
+    //     if (estabelecimentos[i].categoria.id === parseInt(categoriaId)) {
+    //       categoria.push(estabelecimentos[i]);
+    //     }
+    //   }
+    //   return categoria;
+    // }
 
   };
-});
+})
+
+.factory('Visualizations', function() {
+
+  // Some fake testing data
+  var visualizations = [{
+    id: 0,
+    name: 'v0',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }, {
+    id: 1,
+    name: 'v1',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }, {
+    id: 2,
+    name: 'v2',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }, {
+    id: 3,
+    name: 'v3',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }, {
+    id: 4,
+    name: 'v4',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }, {
+    id: 5,
+    name: 'v5',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }, {
+    id: 6,
+    name: 'v6',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }, {
+    id: 7,
+    name: 'v7',
+    description: '',
+    color: '',
+    user: '',
+    img: '',
+    thumb: '',
+    follow: false,
+    liked: false,
+    likes: [{}],
+    comments: [{}],
+    datasets: [{}],
+    tags: [{}]
+  }];
+
+  return {
+    all: function() {
+      return visualizations;
+    },
+    remove: function(visualization) {
+      visualizations.splice(visualizations.indexOf(visualization), 1);
+    },
+    get: function(visualizationID) {
+      for (var i = 0; i < visualizations.length; i++) {
+        if (visualizations[i].id === parseInt(visualizationID)) {
+          return visualizations[i];
+        }
+      }
+      return null;
+    }
+  };
+})
+
+.factory('Notifications', function() {
+
+  // Some fake testing data
+  var notifications = [{
+    id: 0,
+    user: {},
+    action: '',
+    time: '10min',
+    visualization: {}
+  }, {
+   id: 1,
+    user: {},
+    action: '',
+    time: '1h',
+    visualization: {}
+  }, {
+    id: 2,
+    user: {},
+    action: '5h',
+    time: '5h',
+    visualization: {}
+  }, {
+    id: 3,
+    user: {},
+    action: '2d',
+    time: '2d',
+    visualization: {}
+  }];
+
+  return {
+    all: function() {
+      return notifications;
+    },
+    remove: function(notification) {
+      notifications.splice(notifications.indexOf(notification), 1);
+    },
+    get: function(notificationID) {
+      for (var i = 0; i < notifications.length; i++) {
+        if (notifications[i].id === parseInt(notificationID)) {
+          return notifications[i];
+        }
+      }
+      return null;
+    }
+  };
+})

@@ -1,0 +1,16 @@
+<div ng-repeat="l in list">
+    <div class="row" ng-if="$index % 3 == 0">
+        <a class="col col-33 app-div-categoria" ng-click="getList({item: list[$index]})">
+            <img ng-src="{{list[$index].urlIcone    }}">
+            <p>{{list[$index].nome}}</p>
+        </a>
+        <a class="col col-33 app-div-categoria" ng-if="!!list[$index + 1]" ng-click="getList({item: list[$index + 1]})">
+            <img ng-src="{{list[$index + 1].urlIcone}}">
+            <p>{{list[$index + 1].nome}}</p>
+        </a>
+        <a class="col col-33 app-div-categoria" ng-if="!!list[$index + 2]" ng-click="getList({item: list[$index + 2]})">
+            <img ng-src="{{list[$index + 2].urlIcone}}">
+            <p>{{list[$index + 2].nome}}</p>
+        </a>
+    </div>
+</div>

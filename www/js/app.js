@@ -5,8 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ionic-search-bar', 'ionic.closePopup', 'starter.controllers', 'starter.services', 'starter.directives'])
+var app = angular.module('starter', ['ionic', 'ionic-search-bar', 'ionic.closePopup', 'controllers', 'services', 'starter.directives']);
+var services = angular.module('services', []);
+var controllers = angular.module('controllers', []);
 
+app
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -67,58 +70,105 @@ angular.module('starter', ['ionic', 'ionic-search-bar', 'ionic.closePopup', 'sta
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.timeline', {
+    url: '/timeline',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-timeline': {
+        templateUrl: 'templates/tab-timeline.html',
+        controller: 'MainCtrl'
       }
     }
   })
 
-  .state('tab.dash-evento', {
-      url: '/dash/:eventoId',
-      cacheView: false,
+  .state('tab.explore', {
+      url: '/explore',
       views: {
-        'tab-dash': {
-          templateUrl: 'templates/evento.html',
-          /*controller: 'EventoCtrl'*/
+        'tab-explore': {
+          templateUrl: 'templates/tab-explore.html',
+          controller: 'MainCtrl'
         }
       }
-    })
+  })
 
-  .state('tab.categorias', {
-      url: '/categorias',
-      views: {
-        'tab-categorias': {
-          templateUrl: 'templates/tab-categorias.html',
-          controller: 'CategoriasCtrl'
-        }
-      }
-    })
-    .state('tab.categoria-detail', {
-      url: '/categorias/:categoriaId',
-      cacheView: false,
-      views: {
-        'tab-categorias': {
-          templateUrl: 'templates/categoria-detail.html',
-          controller: 'EstabelecimentosCtrl'
-        }
-      }
-    })
-
-  .state('tab.trend', {
-    url: '/trend',
+  .state('tab.visualization-detail', {
+    url: '/explore/v/:visualizationID',
+    cacheView: false,
     views: {
-      'tab-trend': {
-        templateUrl: 'templates/tab-trend.html',
-        controller: 'EstabelecimentosCtrl'
+      'tab-explore': {
+        templateUrl: 'templates/visualization-detail.html',
+        controller: 'MainCtrl'
       }
     }
-  });
+  })
+
+  .state('tab.dataset-detail', {
+    url: '/explore/d/:datasetID',
+    cacheView: false,
+    views: {
+      'tab-explore': {
+        templateUrl: 'templates/dataset-detail.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.tag-list', {
+    url: '/explore/tag-list/:tagID',
+    cacheView: false,
+    views: {
+      'tab-explore': {
+        templateUrl: 'templates/tag-list.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.search', {
+    url: '/explore/search',
+    cacheView: false,
+    views: {
+      'tab-explore': {
+        templateUrl: 'templates/search.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.visualization', {
+    url: '/visualization',
+    views: {
+      'tab-visualization': {
+        templateUrl: 'templates/tab-visualization.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.notification', {
+    url: '/notification',
+    views: {
+      'tab-notification': {
+        templateUrl: 'templates/tab-notification.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.account', {
+    url: '/account',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-account.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+;
+
+
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/timeline');
 
 });

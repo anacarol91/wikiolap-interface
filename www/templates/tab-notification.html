@@ -1,0 +1,11 @@
+<ion-view view-title="Notificações">
+
+  <!-- content -->
+  <ion-content padding-vertical has-bouncing="true">
+    <ion-refresher on-refresh="refreshNotifications()" pulling-icon="false"></ion-refresher>
+    <a class="card tappable" ng-repeat="item in notifications | orderBy: 'id'" href="#/tab/explore/d/{{item.id}}">
+      <div class="card-title" ng-bind="item.time"></div>
+    </a>
+
+  </ion-content>
+</ion-view>

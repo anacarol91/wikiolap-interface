@@ -1,0 +1,15 @@
+<ion-view view-title="{{tag.name}}">
+
+  <ion-content padding-vertical has-bouncing="true">
+  	<!-- <ion-refresher on-refresh="refreshEstabelecimentos()" pulling-icon="false"></ion-refresher> -->
+
+  	<!-- estabelecimentos-->
+    <ion-list id="events-card-list">
+      <a class="card item item-thumbnail-left tappable estab-adjust" type="item-text-wrap" ng-repeat="i in tag.visualizations | orderBy:'-checkin' | filter: search.txt" href="#/tab/explore/v/{{i.id}}">
+        <h2 ng-bind="i.name"></h2>
+      </a>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
+
