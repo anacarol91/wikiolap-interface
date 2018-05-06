@@ -3,16 +3,11 @@ services.factory('Tags', function() {
   // Some fake testing data
   var tags = [{
     id: 0,
-    name: '#saude',
-    color: '',
-    datasets: [{}],
-    visualizations: [{
-      id: 0,
-      name: '0'
-    }]
+    name: '#saúde',
+    color: ''
   }, {
     id: 1,
-    name: '#imposto',
+    name: '#investimentos',
     color: ''
   }, {
     id: 2,
@@ -20,6 +15,10 @@ services.factory('Tags', function() {
     color: ''
   }, {
     id: 3,
+    name: '#agricultura',
+    color: ''
+  }, {
+    id: 4,
     name: '#turismo',
     color: ''
   }];

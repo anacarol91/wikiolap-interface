@@ -46,9 +46,23 @@ angular.module('starter.directives', ['ionic'])
 .directive('visualizationCard', function () {
   return {
     restrict: 'E',
+    transclude: true,
+    controller: 'MainCtrl',
     templateUrl: 'js/directives/templates/visualization_card.html',
     scope: {
         item: "=item"
+    }
+  };
+})
+
+.directive('squareCardList', function () {
+  return {
+    restrict: 'E',
+    transclude: true,
+    controller: 'MainCtrl',
+    templateUrl: 'js/directives/templates/square_card_list.html',
+    scope: {
+        list: "=list"
     }
   };
 })
@@ -90,6 +104,13 @@ angular.module('starter.directives', ['ionic'])
     scope:{
         list: "=list"
     }
+  };
+})
+
+.directive('backButton', function () {
+  return {
+    restrict: 'AE',
+    template: '<button class="button button-icon icon ion-android-arrow-back modal-back-icon" style="color: #333 !important"></button>'
   };
 })
 

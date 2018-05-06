@@ -1,1 +1,199 @@
-/* Empty. Add your own CSS if you like */
+.container {
+	padding: 3%;
+	background-color: #f6f6f6;
+}
+
+h2 {
+	font-family: 'Roboto Condensed', sans-serif !important;
+    font-size: 40px;
+    color: #333;
+    font-weight: 300;
+    margin-bottom: 25px;
+    margin-top: 0;
+}
+
+h3 {
+    color: #8c8f91;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+h4 {
+	font-family: 'Roboto Condensed', sans-serif !important;
+    color: #333;
+    font-weight: 300;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.square-cards {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.square-cards .card {
+  -webkit-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -moz-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -ms-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -o-box-shadow: 0 2px 1px 0 #d6d6d6;
+  box-shadow: 0 2px 1px 0 #d6d6d6;
+  background-color: #fff;
+	height: 120px;
+	width: 49%;
+	margin:  0;
+	padding:  0;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ .square-cards .card.activated {
+    -webkit-box-shadow: 0 2px 6px 2px #d6d6d6;
+    -moz-box-shadow: 0 2px 6px 2px #d6d6d6;
+    -ms-box-shadow: 0 2px 6px 2px #d6d6d6;
+    -o-box-shadow: 0 2px 6px 2px #d6d6d6;
+    box-shadow: 0 2px 6px 2px #d6d6d6;
+    background-color: #fff;
+}
+
+  .square-cards .card img {
+    margin-bottom: 8px;
+    max-height: 100px !important;
+}
+
+.square-cards .card .text-box {
+	position: relative;
+    overflow: hidden;
+    width: 95%;
+	padding:  0 10px;
+    text-overflow: ellipsis;
+}
+
+.square-cards .card span {
+    display: inline-block;
+    word-wrap: break-word;
+    max-height: 40px;
+    line-height: 1.3em;
+    text-align: left;
+}
+
+#notification-card-list .item {
+  -webkit-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -moz-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -ms-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -o-box-shadow: 0 2px 1px 0 #d6d6d6;
+  box-shadow: 0 2px 1px 0 #d6d6d6;
+  background-color: #fff;
+  margin: 0;
+  margin-bottom: 10px;
+  height: 65px;
+  }
+  #notification-card-list .item.activated {
+    -webkit-box-shadow: 0 2px 6px 2px #d6d6d6;
+    -moz-box-shadow: 0 2px 6px 2px #d6d6d6;
+    -ms-box-shadow: 0 2px 6px 2px #d6d6d6;
+    -o-box-shadow: 0 2px 6px 2px #d6d6d6;
+    box-shadow: 0 2px 6px 2px #d6d6d6;
+    background-color: #fff; }
+  #notification-card-list .item img {
+    max-width: 50px !important;
+    max-height: 50px !important;
+    left: 10px;
+    top: 10px;
+}
+
+#notification-card-list .item p {
+	white-space: normal;
+}
+
+#notification-card-list .item .time {
+	float: right;
+    font-size: 12px;
+}
+
+#notification-card-list .item .name {
+	font-weight: bold;
+}
+
+.scrol-list {
+	margin-bottom: 25px;
+}
+.scrol-list .scroll {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    transition: transform 0s ease-out 0s;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.tag-box {
+	border: 1px solid #333;
+    padding: 1px 5px;
+    text-align: center;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0 10px
+}
+
+.explore-card {
+	width: 160px !important;
+    height: 150px !important;
+    margin: 0;
+    margin-right: 7px !important;
+}
+
+.explore-title {
+	display:  flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.explore-title a {
+	color: #333;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.top-visualization {
+	width: 100% !important;
+	height: 200px !important;
+    margin-bottom: 10px;
+}
+
+.top-visualization img {
+	width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+
+.text-box {
+	padding: 0 10px;
+}
+
+#visualization img {
+	width: 100%;
+}
+
+.search-list {
+	font-size: 16px;
+	text-decoration: none;
+	color:  #333;
+}
+
+.search-list p {
+	margin: 0 0 15px;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}

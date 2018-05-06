@@ -11,13 +11,54 @@
   </ion-nav-title>
 
   <!-- content -->
-  <ion-content padding-vertical has-bouncing="true">
+  <ion-content class="container" has-bouncing="true">
     <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
-    <tag-search-list list="tags"></tag-search-list>
 
-     <visualization-search-list list="visualizations"></visualization-search-list>
+    <div class="explore-title">
+      <h4>Visualizações mais <br>curtidas</h4>
+      <a href="#/tab/explore/list/Visualizações">VER TODOS</a>
+    </div>
 
-     <dataset-search-list list="datasets"></dataset-search-list>
+    <div class="card explore-card top-visualization" ng-repeat="i in visualizations | orderBy: 'likes.length'" item="i" ng-if="$first" ng-click="openVisualizationDetail(i.id)" >
+      <img ng-src="{{i.img}}">
+      <div class="text-box">
+        <span>{{i.name}}</span>
+      </div>
+    </div>
+
+    <ion-scroll id="visualization" direction="x" class="scrol-list square-cards">
+      <div class="card explore-card" ng-repeat="i in visualizations | orderBy: 'likes.length'" item="i" ng-hide="$first" ng-click="openVisualizationDetail(i.id)" >
+        <img ng-src="{{i.img}}">
+        <div class="text-box">
+          <span>{{i.name}}</span>
+        </div>
+      </div>
+    </ion-scroll>
+
+    <div class="explore-title">
+      <h4>Tags</h4>
+      <a href="#/tab/explore/list/Tags">VER TODOS</a>
+    </div>
+
+    <ion-scroll direction="x" class="scrol-list">
+      <div ng-repeat="tag in tags" item="tag" class="tag-box">
+        {{tag.name}}
+      </div>
+    </ion-scroll>
+
+    <div class="explore-title">
+      <h4>Datasets</h4>
+      <a href="#/tab/explore/list/Datasets">VER TODOS</a>
+    </div>
+
+    <ion-scroll direction="x" class="scrol-list square-cards">
+      <div class="card explore-card" ng-repeat="i in datasets" item="i" ng-click="openVisualizationDetail(i.id)" >
+        <img ng-src="{{i.img}}">
+        <div class="text-box">
+          <span>{{i.name}}</span>
+        </div>
+      </div>
+    </ion-scroll>
 
   </ion-content>
 </ion-view>

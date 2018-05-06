@@ -29,32 +29,24 @@ services.factory('Users', function() {
     id: ana.id,
     name: ana.name,
     avatar: ana.avatar,
-    visualizations: [{}],
-    datasets: [{}],
     following: [glivia, ismael, flavio],
     followers: [glivia, ismael, flavio]
   }, {
     id: glivia.id,
     name: glivia.name,
     avatar: glivia.avatar,
-    visualizations: [{}],
-    datasets: [{}],
     following: [ana, ismael, flavio],
     followers: [ana, ismael, flavio]
   }, {
     id: ismael.id,
     name: ismael.name,
     avatar: ismael.avatar,
-    visualizations: [{}],
-    datasets: [{}],
     following: [ana, glivia, flavio],
     followers: [ana, glivia, flavio]
   }, {
     id: flavio.id,
     name: flavio.name,
     avatar: flavio.avatar,
-    visualizations: [{}],
-    datasets: [{}],
     following: [ana, glivia, ismael],
     followers: [ana, glivia, ismael]
   }];

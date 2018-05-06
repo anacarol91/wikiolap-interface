@@ -1,11 +1,17 @@
-<ion-view view-title="Notificações">
+<ion-view view-title="Notificações" hide-nav-bar="true">
 
   <!-- content -->
-  <ion-content padding-vertical has-bouncing="true">
+  <ion-content class="container" has-bouncing="true">
+  	<h2>Notificações</h2>
     <ion-refresher on-refresh="refreshNotifications()" pulling-icon="false"></ion-refresher>
-    <a class="card tappable" ng-repeat="item in notifications | orderBy: 'id'" href="#/tab/explore/d/{{item.id}}">
-      <div class="card-title" ng-bind="item.time"></div>
-    </a>
+
+    <div id="notification-card-list">
+	  <div class="item item-avatar" ng-repeat="i in notifications" ng-click="openVisualizationModal(i.id)">
+	    <img ng-src="{{i.user.avatar}}">
+	    <span class="time">{{i.time}}</span>
+	    <p><span class="name">{{i.user.name}}</span>{{i.action}}</p>
+	  </div>
+	</div>
 
   </ion-content>
 </ion-view>

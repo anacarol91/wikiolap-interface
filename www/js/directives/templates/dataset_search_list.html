@@ -1,11 +1,19 @@
-<h2>Pesquisas Recentes</h2>
-<a class="card tappable" ng-repeat="item in list | orderBy: 'id' | limitTo: 3" href="#/tab/explore/d/{{item.id}}">
-	<div class="card-title" ng-bind="item.name"></div>
-</a>
+<span ng-if="!$parent.search.name">
+	<h3>Recentes</h3>
+	<div class="search-list" ng-repeat="item in list | orderBy: 'id' | limitTo: 1" ng-click="">
+		<p ng-bind="item.name"></p>
+		<hr>
+	</div>
+	<br>
+</span>
 
-<hr>
+<h3 ng-if="!$parent.search.name">Todos</h3>
+<h3 ng-if="$parent.search.name">Resultados</h3>
 
-<h2>{{list.length}} datasets encontrados</h2>
-<a class="card tappable" ng-repeat="item in list | orderBy: 'name'" href="#/tab/explore/d/{{item.id}}">
-	<div class="card-title" ng-bind="item.name"></div>
-</a>
+<div ng-show="results.length !== 0" class="search-list" ng-repeat="item in list | orderBy: 'name' | filter: $parent.search as results" ng-click="">
+	<p ng-bind="item.name"></p>
+	<hr>
+</div>
+
+<!-- no results -->
+<ion-item ng-if="results.length === 0">No results found </ion-item>

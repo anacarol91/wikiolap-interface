@@ -1,59 +1,81 @@
 services.factory('Datasets', function() {
 
+  var dsImg = 'img/database.png';
+  var previaDados = '';
+
+  var ana = {
+    id: 0,
+    name: 'Ana Carolina',
+    avatar: 'img/adam.jpg'
+  }
+
+  var glivia = {
+    id: 1,
+    name: 'Glívia',
+    avatar: 'img/ben.jpg'
+  }
+
+  var ismael = {
+    id: 2,
+    name: 'Ismael',
+    avatar: 'img/max.jpg'
+  }
+
+  var flavio = {
+    id: 3,
+    name: 'Flávio',
+    avatar: 'img.mike.jpg'
+  }
+
   // Some fake testing data
   var datasets = [{
     id: 0,
-    name: 'dataset0',
-    img: '',
-    description:'',
-    creation: '',
-    data: '',
-    user: {},
-    tags: {},
-    visualizations: [{}]
+    name: 'Indicadores sobre Aquicultura familiar',
+    img: dsImg,
+    description: 'Série histórica de indicadores dos resultados governamentais relativos à Aquicultura familiar.',
+    creation: '05/09/2014',
+    data: previaDados,
+    user: ismael,
+    tags: "#agricultura",
   },{
     id: 1,
-    name: 'dataset1',
-    img: '',
-    description:'',
-    creation: '',
-    data: '',
-    user: {},
-    tags: {},
-    visualizations: [{}]
+    name: 'Microdados do Censo da Educação Superior',
+    img: dsImg,
+    description: 'Anualmente, o Inep realiza a coleta de dados sobre a educação superior, com o objetivo de oferecer informações detalhadas sobre a situação atual e as grandes tendências do setor, tanto à comunidade acadêmica quanto à sociedade em geral.',
+    creation: '26/03/2012',
+    data: previaDados,
+    user: glivia,
+    tags: '#educação'
   },
   {
     id: 2,
-    name: 'dataset2',
-    img: '',
-    description:'',
+    name: 'Instituições de Ensino Básico',
+    img: dsImg,
+    description: 'Cadastro das escolas da educação básica fornecido pelo INEP, oriundo do Censo Escolar de 2012.',
     creation: '',
-    data: '',
-    user: {},
-    tags: {},
-    visualizations: [{}]
+    data: '19/08/2013',
+    user: flavio,
+    tags: '#educação'
   },
   {
     id: 3,
-    name: 'dataset3',
-    img: '',
-    description:'',
-    creation: '',
-    data: '',
-    user: {},
-    tags: {},
-    visualizations: [{}]
+    name: 'Proporção de pacientes HIV positivo',
+    img: dsImg,
+    description: 'Este indicador expressa o poder de captação precoce dos casos de HIV positivo para tratamento a partir do nível de comprometimentodo sistema imunológico dos indivíduos infectados ao serem testados para verificação de indicação de Terapia Anti Retroviral(TARV)',
+    creation: '19/05/2015',
+    data: previaDados,
+    user: ana,
+    tags: '#saúde'
   },
   {
     id: 4,
-    name: 'dataset3',
-    img: '',
-    description:'',
-    creation: '',
-    data: '',
-    user: {},
-    tags: {},
-    visualizations: [{}]
+    name: 'Resgates do Tesouro Direto',
+    img: dsImg,
+    description: 'Este conjunto de dados apresenta o volume financeiro de resgates ocorridos no Tesouro Direto em determinado mês.',
+    creation: '08/01/2018',
+    data: previaDados,
+    user: ana,
+    tags: '#investimentos'
   }];
 
   return {
@@ -72,6 +94,17 @@ services.factory('Datasets', function() {
         }
       }
       return null;
+    },
+
+    getByUser: function(userID) {
+      var result = [];
+
+      for (var i = 0; i < datasets.length; i++) {
+        if (datasets[i].user.id === parseInt(userID)) {
+          result.push(visualizations[i]);
+        }
+      }
+      return result;
     }
   };
 })

@@ -1,8 +1,8 @@
-controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users) {
-
+controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users) {
   $scope.$on('$ionicView.enter', function(e) {
-
+    console.log('enter main controller');
     $scope.search = {};
+    $scope.listTitle = '';
 
     $scope.tags = Tags.all();
     $scope.datasets = Datasets.all();
@@ -10,11 +10,7 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.notifications = Notifications.all();
     $scope.users = Users.all();
 
-    $scope.tag = Tags.get($stateParams.tagID);
-    $scope.visualization = Visualizations.get($stateParams.visualizationID);
-    $scope.dataset = Datasets.get($stateParams.datasetID);
-    $scope.user = Users.get($stateParams.userID);
-
+    $scope.listType = $stateParams.type;
   });
 
   $scope.getTag = (itemID) => {
@@ -37,8 +33,16 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     Categorias.remove(categoria);
   };
 
+  $scope.goBack = function() {
+    $ionicHistory.goBack();
+  }
+
   $scope.openSearch = function(){
     $state.go('tab.search');
+  }
+
+  $scope.openList = function(title){
+    $state.go('tab.explore-list');
   }
 
    $scope.testAlert = function() {
@@ -49,21 +53,24 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     IonicClosePopupService.register(alertPopup); // condição para ionic-close-popup
   };
 
-  // $ionicModal.fromTemplateUrl('my-modal.html', {
-  //   scope: $scope,
-  //   animation: 'slide-in-up'
-  // }).then(function(modal) {
-  //   $scope.modal = modal;
-  // });
-  // $scope.openModal = function() {
-  //   $scope.modal.show();
-  // };
-  // $scope.closeModal = function() {
-  //   $scope.modal.hide();
-  // };
-  // // Cleanup the modal when we're done with it!
-  // $scope.$on('$destroy', function() {
-  //   $scope.modal.remove();
-  // });
+  $ionicModal.fromTemplateUrl('templates/modals/visualization-detail.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    $scope.openVisualizationModal = function(itemID) {
+      console.log('open modal ' + itemID);
+      $scope.visualization = Visualizations.get(itemID);
+      $scope.modal.show();
+    };
+    $scope.closeVisualizationModal = function() {
+      console.log('fechaa');
+      $scope.modal.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+  });
 });
 

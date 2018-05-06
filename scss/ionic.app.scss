@@ -19,16 +19,21 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic", "variables", "mixins", "events", "category";
+//@import "www/lib/ionic/scss/ionic", "variables", "mixins", "events", "category";
 
-h3 {
-	color: $title-color;
-    font-size: 1em;
-    text-transform: uppercase;
-    font-weight: normal;
-    margin-left: 5%;
-    margin-bottom: -5px;
+.container {
+	padding: 1%;
+	background-color: $background-color;
 }
+
+// h3 {
+// 	color: $title-color;
+//     font-size: 1em;
+//     text-transform: uppercase;
+//     font-weight: normal;
+//     //margin-left: 5%;
+//     margin-bottom: -5px;
+// }
 
 .estab-adjust {
 	flex-flow: column wrap !important;

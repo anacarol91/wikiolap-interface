@@ -15,13 +15,14 @@
   </ion-nav-title>
 
   <!-- content -->
-  <ion-content padding-vertical has-bouncing="true">
+  <ion-content class="container" has-bouncing="true">
     <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+
     <tag-search-list list="tags"></tag-search-list>
 
-     <visualization-search-list list="visualizations"></visualization-search-list>
+    <visualization-search-list list="visualizations"></visualization-search-list>
 
-     <dataset-search-list list="datasets"></dataset-search-list>
+    <dataset-search-list list="datasets"></dataset-search-list>
 
     <!-- datasets -->
     <!-- <ion-list ng-show="results.length === 0"> -->

@@ -1,30 +1,62 @@
 services.factory('Notifications', function() {
 
+var ana = {
+    id: 0,
+    name: 'Ana Carolina',
+    avatar: 'img/adam.jpg'
+  }
+
+  var glivia = {
+    id: 1,
+    name: 'Glívia',
+    avatar: 'img/ben.png'
+  }
+
+  var ismael = {
+    id: 2,
+    name: 'Ismael',
+    avatar: 'img/max.png'
+  }
+
+  var flavio = {
+    id: 3,
+    name: 'Flávio',
+    avatar: 'img/mike.png'
+  }
+
   // Some fake testing data
   var notifications = [{
     id: 0,
-    user: {},
-    action: '',
-    time: '10min',
-    visualization: {}
+    user: glivia,
+    action: ' comentou em sua visualização.',
+    time: '10m',
+    visualization: {
+      id: 0
+    }
   }, {
    id: 1,
-    user: {},
-    action: '',
+    user: ismael,
+    action: ' curtiu uma visualização que você segue.',
     time: '1h',
-    visualization: {}
+    visualization: {
+      id: 1
+    }
   }, {
     id: 2,
-    user: {},
-    action: '5h',
+    user: glivia,
+    action: ' curtiu sua visualização.',
     time: '5h',
-    visualization: {}
+    visualization: {
+      id: 0
+    }
   }, {
     id: 3,
-    user: {},
-    action: '2d',
+    user: flavio,
+    action: ' comentou em uma visualização que você segue.',
     time: '2d',
-    visualization: {}
+    visualization: {
+      id: 3
+    }
   }];
 
   return {

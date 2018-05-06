@@ -90,34 +90,23 @@ app
       }
   })
 
-  .state('tab.visualization-detail', {
-    url: '/explore/v/:visualizationID',
-    cacheView: false,
-    views: {
-      'tab-explore': {
-        templateUrl: 'templates/visualization-detail.html',
-        controller: 'MainCtrl'
-      }
-    }
-  })
-
-  .state('tab.dataset-detail', {
-    url: '/explore/d/:datasetID',
-    cacheView: false,
-    views: {
-      'tab-explore': {
-        templateUrl: 'templates/dataset-detail.html',
-        controller: 'MainCtrl'
-      }
-    }
-  })
-
   .state('tab.tag-list', {
     url: '/explore/tag-list/:tagID',
     cacheView: false,
     views: {
       'tab-explore': {
         templateUrl: 'templates/tag-list.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.explore-list', {
+    url: '/explore/list/:type',
+    cacheView: false,
+    views: {
+      'tab-explore': {
+        templateUrl: 'templates/explore-list.html',
         controller: 'MainCtrl'
       }
     }
@@ -162,9 +151,7 @@ app
         controller: 'MainCtrl'
       }
     }
-  })
-
-;
+  });
 
 
 
