@@ -9,19 +9,19 @@ services.factory('Users', function() {
   var glivia = {
     id: 1,
     name: 'Glívia',
-    avatar: 'img/ben.jpg'
+    avatar: 'img/ben.png'
   }
 
   var ismael = {
     id: 2,
     name: 'Ismael',
-    avatar: 'img/max.jpg'
+    avatar: 'img/max.png'
   }
 
   var flavio = {
     id: 3,
     name: 'Flávio',
-    avatar: 'img.mike.jpg'
+    avatar: 'img/mike.png'
   }
 
   // Some fake testing data

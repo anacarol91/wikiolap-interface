@@ -3,16 +3,17 @@
   <!-- content -->
   <ion-content class="container" has-bouncing="true">
   	<back-button ng-click="goBack()"></back-button>
-  	<h2 style="display: inline-block; margin-left: 20px">{{listType}}</h2>
+  	<h2 class="list-title">{{listType}}</h2>
 
-    <ion-refresher on-refresh="refreshNotifications()" pulling-icon="false"></ion-refresher>
-    <square-card-list list="datasets" ng-if="listType === 'Datasets'"></square-card-list>
+    <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+    <dataset-card-list list="datasets" ng-if="listType === 'Datasets'"></dataset-card-list>
 
-    <square-card-list list="visualizations" ng-if="listType === 'Visualizações'"></square-card-list>
+    <visualization-card-list list="visualizations" ng-if="listType === 'Visualizações'"></visualization-card-list>
 
-    <div ng-repeat="tag in tags"  ng-if="listType === 'Tags'">
-    {{tag.name}}
-  </div>
+    <a ng-if="listType === 'Tags'" class="search-list" ng-repeat="tag in tags" href="#/tab/explore/tag-list/{{tag.id}}">
+      <p ng-bind="tag.name"></p>
+      <hr>
+    </a>
 
   </ion-content>
 </ion-view>

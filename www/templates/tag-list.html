@@ -1,14 +1,11 @@
-<ion-view view-title="{{tag.name}}">
+<ion-view view-title="{{tag.name}}" hide-nav-bar="true">
 
-  <ion-content padding-vertical has-bouncing="true">
+  <ion-content class="container" has-bouncing="true">
   	<!-- <ion-refresher on-refresh="refreshEstabelecimentos()" pulling-icon="false"></ion-refresher> -->
+	<back-button ng-click="goBack()"></back-button>
+  	<h2 class="list-title">{{tag.name}}</h2>
 
-  	<!-- estabelecimentos-->
-    <ion-list id="events-card-list">
-      <a class="card item item-thumbnail-left tappable estab-adjust" type="item-text-wrap" ng-repeat="i in tag.visualizations | orderBy:'-checkin' | filter: search.txt" href="#/tab/explore/v/{{i.id}}">
-        <h2 ng-bind="i.name"></h2>
-      </a>
-    </ion-list>
+    <visualization-card-list list="tagVisualizations"></visualization-card-list>
 
   </ion-content>
 </ion-view>

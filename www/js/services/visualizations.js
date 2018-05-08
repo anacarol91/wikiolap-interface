@@ -3,6 +3,7 @@ services.factory('Visualizations', function() {
   var img01 = 'img/grafico01.PNG'
   var img02 = 'img/grafico02.PNG'
   var img03 = 'img/grafico03.PNG'
+  var img04 = 'img/grafico04.PNG'
 
   var ana = {
     id: 0,
@@ -13,19 +14,19 @@ services.factory('Visualizations', function() {
   var glivia = {
     id: 1,
     name: 'Glívia',
-    avatar: 'img/ben.jpg'
+    avatar: 'img/ben.png'
   }
 
   var ismael = {
     id: 2,
     name: 'Ismael',
-    avatar: 'img/max.jpg'
+    avatar: 'img/max.png'
   }
 
   var flavio = {
     id: 3,
     name: 'Flávio',
-    avatar: 'img.mike.jpg'
+    avatar: 'img/mike.png'
   }
 
   // Some fake testing data
@@ -42,7 +43,7 @@ services.factory('Visualizations', function() {
     likes: [],
     comments: [{}],
     datasets: [{}],
-    tag: 2
+    tag: 1
   }, {
     id: 1,
     name: 'v1',
@@ -70,21 +71,21 @@ services.factory('Visualizations', function() {
     likes: [ana],
     comments: [{}],
     datasets: [{}],
-    tag: 2
+    tag: 3
   }, {
     id: 3,
     name: 'v3',
     description: '',
     color: '',
     user: glivia,
-    img: img02,
+    img: img04,
     thumb: '',
     follow: true,
     liked: true,
     likes: [ana, ismael],
     comments: [{}],
     datasets: [{}],
-    tag: 2
+    tag: 4
   }, {
     id: 4,
     name: 'v4',
@@ -112,7 +113,7 @@ services.factory('Visualizations', function() {
     likes: [flavio, glivia, ismael],
     comments: [{}],
     datasets: [{}],
-    tag: 2
+    tag: 1
   }, {
     id: 6,
     name: 'v6',
@@ -133,14 +134,14 @@ services.factory('Visualizations', function() {
     description: '',
     color: '',
     user: ana,
-    img: img03,
+    img: img04,
     thumb: '',
     follow: false,
     liked: true,
     likes: [ana, glivia, ismael],
     comments: [{}],
     datasets: [{}],
-    tag: 2
+    tag: 3
   }];
 
   return {
@@ -170,11 +171,33 @@ services.factory('Visualizations', function() {
       return result;
     },
 
+    getFollowed: function() {
+      var result = [];
+
+      for (var i = 0; i < visualizations.length; i++) {
+        if (visualizations[i].follow) {
+          result.push(visualizations[i]);
+        }
+      }
+      return result;
+    },
+
+    getLiked: function() {
+      var result = [];
+
+      for (var i = 0; i < visualizations.length; i++) {
+        if (visualizations[i].liked) {
+          result.push(visualizations[i]);
+        }
+      }
+      return result;
+    },
+
     getByTag: function(tagID) {
       var result = [];
 
       for (var i = 0; i < visualizations.length; i++) {
-        if (visualizations[i].user.id === parseInt(tagID)) {
+        if (visualizations[i].tag === parseInt(tagID)) {
           result.push(visualizations[i]);
         }
       }

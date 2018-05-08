@@ -43,6 +43,17 @@ angular.module('starter.directives', ['ionic'])
   }
 })
 
+app.directive('autoFocus', function($timeout) {
+    return {
+        restrict: 'AC',
+        link: function(_scope, _element) {
+            $timeout(function(){
+                _element[0].focus();
+            }, 0);
+        }
+    };
+})
+
 .directive('visualizationCard', function () {
   return {
     restrict: 'E',
@@ -55,12 +66,24 @@ angular.module('starter.directives', ['ionic'])
   };
 })
 
-.directive('squareCardList', function () {
+.directive('visualizationCardList', function () {
   return {
     restrict: 'E',
     transclude: true,
     controller: 'MainCtrl',
-    templateUrl: 'js/directives/templates/square_card_list.html',
+    templateUrl: 'js/directives/templates/visualization_card_list.html',
+    scope: {
+        list: "=list"
+    }
+  };
+})
+
+.directive('datasetCardList', function () {
+  return {
+    restrict: 'E',
+    transclude: true,
+    controller: 'MainCtrl',
+    templateUrl: 'js/directives/templates/dataset_card_list.html',
     scope: {
         list: "=list"
     }
@@ -70,6 +93,7 @@ angular.module('starter.directives', ['ionic'])
 .directive('tagSearchList', function () {
   return {
     restrict: 'E',
+    controller: 'MainCtrl',
     templateUrl: 'js/directives/templates/tags_search_list.html',
     scope:{
         list: "=list"
@@ -80,6 +104,7 @@ angular.module('starter.directives', ['ionic'])
 .directive('visualizationSearchList', function () {
   return {
     restrict: 'E',
+    controller: 'MainCtrl',
     templateUrl: 'js/directives/templates/visualization_search_list.html',
     scope:{
         list: "=list"
@@ -90,6 +115,7 @@ angular.module('starter.directives', ['ionic'])
 .directive('datasetSearchList', function () {
   return {
     restrict: 'E',
+    controller: 'MainCtrl',
     templateUrl: 'js/directives/templates/dataset_search_list.html',
     scope:{
         list: "=list"
@@ -100,6 +126,7 @@ angular.module('starter.directives', ['ionic'])
 .directive('userSearchList', function () {
   return {
     restrict: 'E',
+    controller: 'MainCtrl',
     templateUrl: 'js/directives/templates/user_search_list.html',
     scope:{
         list: "=list"

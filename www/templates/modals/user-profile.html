@@ -1,0 +1,63 @@
+<ion-modal-view hide-nav-bar="true">
+
+	<ion-content id="profile" class="container">
+		<back-button ng-click="closeUserModal()"></back-button>
+
+		<div class="profile-header">
+			<div class="user-box">
+			    <img class="avatar" ng-src="{{user.avatar}}">
+				<p ng-bind="user.name"></p>
+			</div>
+			<div class="user-box">
+				<p ng-bind="userVisualizations.length"></p>
+				<h3>Visualizações</h3>
+			</div>
+			<div class="user-box" ng-click="openUserListModal('Seguindo', user.following)">
+			    <p ng-bind="user.following.length"></p>
+				<h3>Seguindo</h3>
+			</div>
+			<div class="user-box" ng-click="openUserListModal('Seguidores', user.followers)">
+			    <p ng-bind="user.followers.length"></p>
+				<h3>Seguidores</h3>
+			</div>
+		</div>
+		<hr>
+
+		<div class="square-cards">
+		  <div class="card" ng-repeat="i in userVisualizations" ng-click="openVisualizationModal(i.id)" style="margin-bottom: 5%">
+		    <img ng-src="{{i.img}}">
+		    <div class="text-box">
+		      <span>{{i.name}}</span>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- <div class="tabs tabs-top tabs-striped">
+		  <a class="tab-item">
+		    VISUALIZAÇÕES
+		  </a>
+		  <a class="tab-item">
+		    DATASETS
+		  </a>
+		</div> -->
+
+		<!-- <ion-tabs class="tabs-top tabs-light tabs-striped">
+          <ion-tab title="VISUALIZAÇÕES">
+          		<div class="square-cards">
+				  <div class="card" ng-repeat="i in userVisualizations" ng-click="openVisualizationModal(i.id)" style="margin-bottom: 5%">
+				    <img ng-src="{{i.img}}">
+				    <div class="text-box">
+				      <span>{{i.name}}</span>
+				    </div>
+				  </div>
+				</div>
+          </ion-tab>
+
+          <ion-tab title="DATASETS">
+          </ion-tab>
+        </ion-tabs> -->
+
+    </ion-content>
+
+</ion-modal-view>
+

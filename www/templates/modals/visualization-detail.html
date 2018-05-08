@@ -1,9 +1,18 @@
 <ion-modal-view hide-nav-bar="true">
 
-	<button class="button button-icon icon ion-android-arrow-back modal-back-icon" style="color: black !important" ng-click="closeVisualizationModal()"></button>{{visualization.name}}
+	<ion-content id="dataset-modal" class="container">
+		<back-button ng-click="closeVisualizationModal()"></back-button>
+  		<h2 class="list-title" style="margin-bottom: 10px">{{visualization.name}}</h2>
+  		<hr>
 
-	<ion-content style="top: 47px">
-		<p ng-bind="visualization.name"></p>
+			<div class="user-box">
+		    <img class="avatar" ng-src="{{visualization.user.avatar}}">
+			<p ng-bind="visualization.user.name"></p>
+		</div>
+  		<hr>
+
+  		<p class="description" ng-bind="visualization.description"></p>
+  		<hr>
 
 	</ion-content>
 </ion-modal-view>

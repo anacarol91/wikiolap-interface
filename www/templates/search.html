@@ -1,12 +1,11 @@
 <ion-view view-title="Pesquisar">
 
   <ion-nav-title>
-
     <!-- search box -->
     <div class="bar bar-header item-input-inset">
       <label class="item-input-wrapper">
         <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" ng-model="$parent.search.name" placeholder="Pesquisar">
+        <input type="search" ng-model="$parent.search.name" placeholder="Pesquisar" auto-focus autofocus>
       </label>
       <button class="button button-clear" ng-click="$parent.search='';">
         Cancel
@@ -14,15 +13,58 @@
     </div>
   </ion-nav-title>
 
+  <ion-tabs id="search-tabs" class="tabs-top tabs-light tabs-striped">
+    <ion-tab title="VISUALIZAÇÕES" >
+      <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
+        <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+        <visualization-search-list list="visualizations"></visualization-search-list>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="DATASETS">
+      <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
+        <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+        <dataset-search-list list="datasets"></dataset-search-list>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="TAGS">
+      <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
+        <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+        <tag-search-list list="tags"></tag-search-list>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="USUÁRIOS">
+      <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
+        <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
+        <user-search-list list="users"></user-search-list>
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
   <!-- content -->
-  <ion-content class="container" has-bouncing="true">
-    <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
 
-    <tag-search-list list="tags"></tag-search-list>
+     <!-- <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+      <div class="tabs">
+        <a class="tab-item active" href="#">
+          Test
+        </a>
+        <a class="tab-item" href="#">
+          Favorites
+        </a>
+        <a class="tab-item" href="#">
+          Settings
+        </a>
+      </div>
+    </div> -->
 
-    <visualization-search-list list="visualizations"></visualization-search-list>
 
-    <dataset-search-list list="datasets"></dataset-search-list>
+
+    <!-- <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher> -->
+
+
+
+
 
     <!-- datasets -->
     <!-- <ion-list ng-show="results.length === 0"> -->

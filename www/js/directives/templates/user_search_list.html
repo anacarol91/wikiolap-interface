@@ -1,0 +1,25 @@
+<span ng-if="!$parent.search.name">
+	<h3>Recentes</h3>
+	<div class="search-list" ng-repeat="item in list | orderBy: 'id' | limitTo: 1" ng-click="openUserModal(item.id)">
+		<div class="user-box">
+		    <img class="avatar" ng-src="{{item.avatar}}">
+			<p ng-bind="item.name"></p>
+		</div>
+		<hr>
+	</div>
+	<br>
+</span>
+
+<h3 ng-if="!$parent.search.name">Todos</h3>
+<h3 ng-if="$parent.search.name">Resultados</h3>
+
+<div ng-show="results.length !== 0" class="search-list" ng-repeat="item in list | orderBy: 'name' | filter: $parent.search as results" ng-click="openUserModal(item.id)">
+	<div class="user-box">
+		<img class="avatar" ng-src="{{item.avatar}}">
+		<p ng-bind="item.name"></p>
+	</div>
+	<hr>
+</div>
+
+<!-- no results -->
+<ion-item ng-if="results.length === 0">No results found </ion-item>

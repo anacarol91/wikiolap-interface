@@ -41,9 +41,9 @@
     </div>
 
     <ion-scroll direction="x" class="scrol-list">
-      <div ng-repeat="tag in tags" item="tag" class="tag-box">
+      <a ng-repeat="tag in tags" item="tag" class="tag-box" href="#/tab/explore/tag-list/{{tag.id}}">
         {{tag.name}}
-      </div>
+      </a>
     </ion-scroll>
 
     <div class="explore-title">
@@ -52,7 +52,7 @@
     </div>
 
     <ion-scroll direction="x" class="scrol-list square-cards">
-      <div class="card explore-card" ng-repeat="i in datasets" item="i" ng-click="openVisualizationDetail(i.id)" >
+      <div class="card explore-card" ng-repeat="i in datasets" item="i" ng-click="openDatasetModal(i.id)" >
         <img ng-src="{{i.img}}">
         <div class="text-box">
           <span>{{i.name}}</span>

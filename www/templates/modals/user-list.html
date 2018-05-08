@@ -1,0 +1,16 @@
+<ion-modal-view hide-nav-bar="true">
+
+	<ion-content id="dataset-modal" class="container">
+		<back-button ng-click="closeUserListModal()"></back-button>
+  		<h2 class="list-title">{{listTitle}}</h2>
+
+		<div class="search-list" ng-repeat="user in userList | orderBy: 'name'" ng-click="openUserModal(user.id)">
+			<div class="user-box">
+				<img class="avatar" ng-src="{{user.avatar}}">
+				<p ng-bind="user.name"></p>
+			</div>
+			<hr>
+		</div>
+
+	</ion-content>
+</ion-modal-view>

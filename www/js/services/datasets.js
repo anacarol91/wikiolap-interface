@@ -1,7 +1,7 @@
 services.factory('Datasets', function() {
 
   var dsImg = 'img/database.png';
-  var previaDados = '';
+  var previaDados = 'img/previa-dados.PNG';
 
   var ana = {
     id: 0,
@@ -12,19 +12,19 @@ services.factory('Datasets', function() {
   var glivia = {
     id: 1,
     name: 'Glívia',
-    avatar: 'img/ben.jpg'
+    avatar: 'img/ben.png'
   }
 
   var ismael = {
     id: 2,
     name: 'Ismael',
-    avatar: 'img/max.jpg'
+    avatar: 'img/max.png'
   }
 
   var flavio = {
     id: 3,
     name: 'Flávio',
-    avatar: 'img.mike.jpg'
+    avatar: 'img/mike.png'
   }
 
   // Some fake testing data
@@ -52,8 +52,8 @@ services.factory('Datasets', function() {
     name: 'Instituições de Ensino Básico',
     img: dsImg,
     description: 'Cadastro das escolas da educação básica fornecido pelo INEP, oriundo do Censo Escolar de 2012.',
-    creation: '',
-    data: '19/08/2013',
+    creation: '19/08/2013',
+    data: previaDados,
     user: flavio,
     tags: '#educação'
   },
@@ -101,7 +101,7 @@ services.factory('Datasets', function() {
 
       for (var i = 0; i < datasets.length; i++) {
         if (datasets[i].user.id === parseInt(userID)) {
-          result.push(visualizations[i]);
+          result.push(datasets[i]);
         }
       }
       return result;
