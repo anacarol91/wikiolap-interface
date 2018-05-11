@@ -57,9 +57,9 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.$broadcast('scroll.refreshComplete');
   }
 
-  // $scope.remove = function(categoria) {
-  //   Categorias.remove(categoria);
-  // };
+  $scope.removeDS = function(id) {
+    Datasets.remove(id);
+  };
 
   $scope.goBack = function() {
     $ionicHistory.goBack();
@@ -110,7 +110,8 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     }).then(function(modal) {
       $scope.modal = modal;
     });
-    $scope.openDatasetModal = function(itemID) {
+    $scope.openDatasetModal = function(itemID, showAdd) {
+      $scope.showAdd = showAdd;
       console.log('open modal dataset ' + itemID);
       $scope.dataset = Datasets.get(itemID);
       $scope.modal.show();
@@ -172,6 +173,45 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
       $scope.modal4.hide();
     };
 
+    $ionicModal.fromTemplateUrl('templates/modals/dataset-list.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal5 = modal;
+    });
+    $scope.openDatasetList = function() {
+      $scope.modal5.show();
+    };
+    $scope.closeDatasetList = function() {
+      $scope.modal5.hide();
+    };
+
+    $ionicModal.fromTemplateUrl('templates/modals/step02.html', {
+      scope: $scope,
+      animation: 'fade-in'
+    }).then(function(modal) {
+      $scope.modal6 = modal;
+    });
+    $scope.openStep02 = function() {
+      $scope.modal6.show();
+    };
+    $scope.closeStep02 = function() {
+      $scope.modal6.hide();
+    };
+
+    $ionicModal.fromTemplateUrl('templates/modals/step03.html', {
+      scope: $scope,
+      animation: 'fade-in'
+    }).then(function(modal) {
+      $scope.modal7 = modal;
+    });
+    $scope.openStep03 = function() {
+      $scope.modal7.show();
+    };
+    $scope.closeStep03 = function() {
+      $scope.modal7.hide();
+    };
+
     // Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
@@ -179,6 +219,10 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
       $scope.modal2.remove();
       $scope.modal3.remove();
       $scope.modal4.remove();
+      $scope.modal5.remove();
+      $scope.modal6.remove();
+      $scope.modal7.remove();
+
   });
 });
 

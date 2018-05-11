@@ -19,7 +19,7 @@
       <a href="#/tab/explore/list/Visualizações">VER TODOS</a>
     </div>
 
-    <div class="card explore-card top-visualization" ng-repeat="i in visualizations | orderBy: 'likes.length'" item="i" ng-if="$first" ng-click="openVisualizationDetail(i.id)" >
+    <div class="card explore-card top-visualization" ng-repeat="i in visualizations | orderBy: 'likes.length'" item="i" ng-if="$first" ng-click="openVisualizationModal(i.id)" >
       <img ng-src="{{i.img}}">
       <div class="text-box">
         <span>{{i.name}}</span>
@@ -27,7 +27,7 @@
     </div>
 
     <ion-scroll id="visualization" direction="x" class="scrol-list square-cards">
-      <div class="card explore-card" ng-repeat="i in visualizations | orderBy: 'likes.length'" item="i" ng-hide="$first" ng-click="openVisualizationDetail(i.id)" >
+      <div class="card explore-card" ng-repeat="i in visualizations | orderBy: 'likes.length'" item="i" ng-hide="$first" ng-click="openVisualizationModal(i.id)" >
         <img ng-src="{{i.img}}">
         <div class="text-box">
           <span>{{i.name}}</span>
@@ -52,7 +52,7 @@
     </div>
 
     <ion-scroll direction="x" class="scrol-list square-cards">
-      <div class="card explore-card" ng-repeat="i in datasets" item="i" ng-click="openDatasetModal(i.id)" >
+      <div class="card explore-card" ng-repeat="i in datasets" item="i" ng-click="openDatasetModal(i.id, false)" >
         <img ng-src="{{i.img}}">
         <div class="text-box">
           <span>{{i.name}}</span>

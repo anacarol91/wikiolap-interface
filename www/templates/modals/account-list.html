@@ -5,14 +5,14 @@
   		<h2 class="list-title">{{listTitle}}</h2>
 
 		<div class="square-cards">
-		  <div ng-if="!isDS" class="card" ng-repeat="i in accountList" ng-click="openVisualizationModal(i.id)" style="margin-bottom: 5%">
+		  <div ng-if="!isDS" class="card" ng-repeat="i in accountList" ng-click="openVisualizationModal(i.id)" style="margin-bottom: 5%; height:150px">
 		    <img ng-src="{{i.img}}">
 		    <div class="text-box">
 		      <span>{{i.name}}</span>
 		    </div>
 		  </div>
 
-		<div ng-if="isDS" class="card" ng-repeat="i in accountList" ng-click="openDatasetModal(i.id)" style="margin-bottom: 5%">
+		<div ng-if="isDS" class="card" ng-repeat="i in accountList" ng-click="openDatasetModal(i.id, false)" style="margin-bottom: 5%">
 		    <img ng-src="{{i.img}}">
 		    <div class="text-box">
 		      <span>{{i.name}}</span>

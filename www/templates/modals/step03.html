@@ -1,0 +1,38 @@
+<ion-modal-view view-title="Criar Visualização" hide-nav-bar="true">
+
+  <ion-content id="add-visualization" class="container" has-bouncing="true">
+  	<div class="nav-box">
+	  <back-button ng-click="closeStep03()"></back-button>
+      <p ng-click="closeStep03()">Concluir</p>
+	</div>
+
+    <h4 style="margin-bottom: 45px;"><span>3</span> Configure os eixos</h4>
+
+  	<img class="img-dados" ng-src="{{visualization.img}}"/>
+
+  	<h4>Eixo X</h4>
+    <div style="margin: 25px 0 45px;" class="icon-box" ng-click="openDatasetList()">
+      <i class="plus icon ion-ios-plus-outline"></i>
+      <h3>Adicionar eixo X</h3>
+    </div>
+    <hr>
+
+  	<h4 style="margin-top: 45px">Eixo Y</h4>
+
+    <div class="ds-card">
+      <div id="notification-card-list">
+        <div class="item adjust">
+          <p>Receita Bruta</p>
+        </div>
+      </div>
+      <i ng-click="removeDS(0)" class="delete icon ion-ios-trash"></i>
+    </div>
+
+    <div class="icon-box" ng-click="openDatasetList()">
+      <i class="plus icon ion-ios-plus-outline"></i>
+      <h3>Adicionar eixo Y</h3>
+    </div>
+
+  </ion-content>
+</ion-modal-view>
+

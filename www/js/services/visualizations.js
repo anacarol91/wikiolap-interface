@@ -32,8 +32,8 @@ services.factory('Visualizations', function() {
   // Some fake testing data
   var visualizations = [{
     id: 0,
-    name: 'v0',
-    description: '',
+    name: 'Visualização 00',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: ana,
     img: img02,
@@ -46,8 +46,8 @@ services.factory('Visualizations', function() {
     tag: 1
   }, {
     id: 1,
-    name: 'v1',
-    description: '',
+    name: 'Visualização 01',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: ismael,
     img: img01,
@@ -60,8 +60,8 @@ services.factory('Visualizations', function() {
     tag: 2
   }, {
     id: 2,
-    name: 'v2',
-    description: '',
+    name: 'Visualização 02',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: flavio,
     img: img03,
@@ -74,8 +74,8 @@ services.factory('Visualizations', function() {
     tag: 3
   }, {
     id: 3,
-    name: 'v3',
-    description: '',
+    name: 'Visualização 03',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: glivia,
     img: img04,
@@ -88,8 +88,8 @@ services.factory('Visualizations', function() {
     tag: 4
   }, {
     id: 4,
-    name: 'v4',
-    description: '',
+    name: 'Visualização 04',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: ana,
     img: img01,
@@ -102,8 +102,8 @@ services.factory('Visualizations', function() {
     tag: 2
   }, {
     id: 5,
-    name: 'v5',
-    description: '',
+    name: 'Visualização 05',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: ana,
     img: img02,
@@ -116,8 +116,8 @@ services.factory('Visualizations', function() {
     tag: 1
   }, {
     id: 6,
-    name: 'v6',
-    description: '',
+    name: 'Visualização 06',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: ana,
     img: img03,
@@ -130,8 +130,8 @@ services.factory('Visualizations', function() {
     tag: 2
   }, {
     id: 7,
-    name: 'v7',
-    description: '',
+    name: 'Visualização 07',
+    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: ana,
     img: img04,

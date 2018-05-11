@@ -1,0 +1,45 @@
+<ion-modal-view view-title="Criar Visualização" hide-nav-bar="true">
+
+  <ion-content id="add-visualization" class="container" has-bouncing="true">
+  	<div class="nav-box">
+	  <back-button ng-click="closeStep02()"></back-button>
+      <p ng-click="openStep03()">Avançar</p>
+	</div>
+
+    <h4 style="margin-bottom: 45px;"><span>2</span> Preencha as informações da visualização</h4>
+
+    <div class="list">
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Nome</span>
+	    <input type="text" placeholder="Nome">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Descrição</span>
+	    <input type="text" placeholder="Descrição">
+	  </label>
+	  <label class="item item-input item-select">
+	    <select>
+	      <option>Tipo de gráfico</option>
+	      <option>Barra</option>
+	      <option>Linha</option>
+	      <option>Pizza</option>
+	    </select>
+	  </label>
+	</div>
+
+	<h4 style="margin-top: 45px">Tags</h4>
+    <div class="ds-card">
+	    <div ng-if="$first" ng-repeat="tag in tags" class="tag-box">
+	    {{tag.name}}
+		</div>
+      	<i ng-click="removeDS(0)" class="delete icon ion-ios-trash"></i>
+    </div>
+
+    <div class="icon-box" ng-click="openDatasetList()">
+      <i class="plus icon ion-ios-plus-outline"></i>
+      <h3>Adicionar tag</h3>
+    </div>
+
+  </ion-content>
+</ion-modal-view>
+

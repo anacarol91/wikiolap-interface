@@ -315,8 +315,9 @@ hr {
 }
 
 #account-menu .avatar {
-	border-radius: 50%;
-    width: 50%;
+	/* border-radius: 50%;
+    width: 50%; */
+    width: 64px;
 }
 
 #account-menu ul {
@@ -327,3 +328,75 @@ hr {
     height: 100%;
 }
 
+#add-visualization h4 span {
+	border: 1px solid #333;
+    border-radius: 50%;
+    padding: 0 10px;
+}
+
+#notification-card-list .adjust {
+	height: auto;
+	width: 115%;
+	margin-bottom: 0;
+}
+
+#add-visualization .delete {
+	font-size: 22pt;
+    color:  #8c8f91;
+    margin: 3%;
+}
+
+#add-visualization .ds-card {
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 45px
+}
+
+#add-visualization .icon-box {
+	display: flex;
+	justify-content: flex-start;
+    align-items: center;
+}
+
+#add-visualization .nav-box {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+}
+
+#add-visualization .icon-box h3 {
+	margin: 0 15px;
+	font-size: 13px;
+}
+
+#add-visualization .plus {
+	font-size: 22pt;
+    color:  #8c8f91;
+}
+
+.fab {
+	background: #333;
+    border-radius: 50%;
+    padding: 5px 14px;
+    color: #fff;
+    position: fixed !important;
+    right: 0;
+    bottom: 0;
+}
+
+#add-visualization .list .item {
+	border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+ #add-visualization .item-select {
+ 	padding: 20px;
+    background-color: #f6f6f6;
+    margin-top: 35px;
+ }
+
+ #add-visualization select {
+ 	left: 0;
+    background-color: #f6f6f6;
+ }

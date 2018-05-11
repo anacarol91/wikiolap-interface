@@ -5,14 +5,18 @@
   		<h2 class="list-title" style="margin-bottom: 10px">{{visualization.name}}</h2>
   		<hr>
 
-			<div class="user-box">
+		<div class="user-box">
 		    <img class="avatar" ng-src="{{visualization.user.avatar}}">
 			<p ng-bind="visualization.user.name"></p>
 		</div>
-  		<hr>
 
+  		<img class="img-dados" ng-src="{{visualization.img}}"/>
+  		<hr>
   		<p class="description" ng-bind="visualization.description"></p>
   		<hr>
+
+
+
 
 	</ion-content>
 </ion-modal-view>
