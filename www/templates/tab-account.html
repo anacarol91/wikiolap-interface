@@ -5,7 +5,7 @@
   </ion-nav-title>
 
   <ion-nav-buttons side="left">
-    <img class="avatar" ng-src="{{mainUser.avatar}}" ng-click="openUserModal(0)">
+    <img class="avatar" ng-src="{{mainUser.avatar}}" ng-click="openUserProfile(0)">
   </ion-nav-buttons>
 
   <ion-nav-buttons side="right">
@@ -24,8 +24,7 @@
       <ion-tab title="CURTIDAS">
         <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
           <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
-          <visualization-card-list list="myLiked"></visualization-card-list
-
+          <visualization-card-list list="myLiked"></visualization-card-list>
         </ion-content>
       </ion-tab>
 

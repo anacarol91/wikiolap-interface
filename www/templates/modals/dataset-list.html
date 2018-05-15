@@ -1,7 +1,7 @@
 <ion-modal-view hide-nav-bar="true">
 
 	<ion-content id="dataset-modal" class="container">
-  		<h2 class="list-title">Escolha um dataset</h2>
+  		<h2 class="list-title">Selecione um dataset</h2>
 		<button ng-click="closeDatasetList()" class="button button-icon icon ion-ios-close-outline modal-back-icon" style="color: #333 !important; right: 0; position: absolute"></button>
 
 		<div ng-if="!$first" class="search-list" ng-repeat="ds in datasets | orderBy: 'name'" ng-click="openDatasetModal(ds.id, true)">

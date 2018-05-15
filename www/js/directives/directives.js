@@ -54,18 +54,6 @@ app.directive('autoFocus', function($timeout) {
     };
 })
 
-.directive('visualizationCard', function () {
-  return {
-    restrict: 'E',
-    transclude: true,
-    controller: 'MainCtrl',
-    templateUrl: 'js/directives/templates/visualization_card.html',
-    scope: {
-        item: "=item"
-    }
-  };
-})
-
 .directive('visualizationCardList', function () {
   return {
     restrict: 'E',

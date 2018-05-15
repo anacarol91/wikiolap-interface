@@ -15,11 +15,11 @@
 
     <div class="ds-card">
       <div id="notification-card-list">
-        <div class="item adjust" ng-if="$first" ng-repeat="ds in datasets" ng-click="openDatasetModal(i.id)">
+        <div class="item adjust" ng-if="$first" ng-repeat="ds in datasets" ng-click="openDatasetModal(ds.id)">
           <p ng-bind="ds.name"></p>
         </div>
       </div>
-      <i ng-click="removeDS(0)" class="delete icon ion-ios-trash"></i>
+      <i class="delete icon ion-ios-trash" ng-click="showDelete()"></i>
     </div>
 
     <div class="icon-box" ng-click="openDatasetList()">

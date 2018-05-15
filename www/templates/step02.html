@@ -8,39 +8,48 @@
         <li class="is-active">INFORMAÇÕES</li>
         <li>EIXOS</li>
       </ul>
-      <button class="button button-icon icon ion-ios-arrow-forward" ng-click="openStep03()"></button>
+      <button class="button button-icon icon ion-ios-arrow-forward" type="submit" ng-disabled="infoForm.$invalid" ng-click="openStep03()"></button>
     </div>
 
-    <h4 style="margin:35px 0"> Preencha as informações da visualização</h4>
+    <h4 style="margin:35px 0 20px"> Preencha as informações da visualização</h4>
 
-    <div class="list">
-	  <label class="item item-input item-floating-label">
-	    <span class="input-label">Nome</span>
-	    <input type="text" placeholder="Nome">
-	  </label>
-	  <label class="item item-input item-floating-label">
-	    <span class="input-label">Descrição</span>
-	    <input type="text" placeholder="Descrição">
-	  </label>
-	  <label class="item item-input item-select">
-	    <select>
-	      <option>Tipo de gráfico</option>
-	      <option>Barra</option>
-	      <option>Linha</option>
-	      <option>Pizza</option>
-	    </select>
-	  </label>
-	</div>
+    <form name="infoForm" ng-submit="openStep03(infoForm.$invalid)" novalidate>
+	    <div class="list">
+		  <label class="item item-input item-floating-label" ng-class="{ 'has-error': infoForm.name.$touched && infoForm.name.$invalid }">
+		    <span class="input-label">Nome</span>
+		    <input type="text" placeholder="Nome" name="name" ng-model="name" required>
+		  </label>
+		  <div class="has-error" ng-messages="infoForm.name.$error" ng-if="infoForm.name.$touched">
+	        <p ng-message="required">Campo obrigatório.</p>
+	   	  </div>
+
+		  <label class="item item-input item-floating-label"  ng-class="{ 'has-error': infoForm.description.$touched && infoForm.description.$invalid }">
+		    <span class="input-label">Descrição</span>
+		    <input type="text" placeholder="Descrição" name="description" ng-model="description" required>
+		  </label>
+		  <div class="has-error" ng-messages="infoForm.description.$error" ng-if="infoForm.description.$touched">
+	        <p ng-message="required">Campo obrigatório.</p>
+	   	  </div>
+
+		  <label class="item item-input item-select">
+		    <select>
+		      <option>Gráfico em barras</option>
+		      <option>Gráfico em linha</option>
+		      <option>Gráfico em pizza</option>
+		    </select>
+		  </label>
+		</div>
+	</form>
 
 	<h4 style="margin-top: 45px">Tags</h4>
-    <div class="ds-card">
+    <div class="ds-card" style="margin-bottom: 15px;">
 	    <div ng-if="$first" ng-repeat="tag in tags" class="tag-box">
 	    {{tag.name}}
 		</div>
-      	<i ng-click="removeDS(0)" class="delete icon ion-ios-trash"></i>
+      	<i ng-click="showDelete()" class="delete icon ion-ios-trash"></i>
     </div>
 
-    <div class="icon-box" ng-click="openDatasetList()">
+    <div class="icon-box" ng-click="openTagList()">
       <i class="plus icon ion-ios-plus-outline"></i>
       <h3>Adicionar tag</h3>
     </div>

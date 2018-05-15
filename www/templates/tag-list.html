@@ -1,12 +1,10 @@
 <ion-view view-title="{{tag.name}}" hide-nav-bar="true">
 
   <ion-content class="container" has-bouncing="true">
-  	<!-- <ion-refresher on-refresh="refreshEstabelecimentos()" pulling-icon="false"></ion-refresher> -->
 	<back-button ng-click="goBack()"></back-button>
   	<h2 class="list-title">{{tag.name}}</h2>
 
     <visualization-card-list list="tagVisualizations"></visualization-card-list>
-
   </ion-content>
 </ion-view>
 

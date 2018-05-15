@@ -18,7 +18,7 @@
   text-align: center;
   display: table-cell;
   position: relative;
-  color: #01d27f;
+  color: #2AC9AA;
   font-size: 11px;
 }
 .multi-steps > li:before {
@@ -37,14 +37,14 @@
   font-weight: bold;
   border-width: 1px;
   border-style: solid;
-  border-color: #01d27f;
+  border-color: #2AC9AA;
   border-radius: 50%;
 }
 .multi-steps > li:after {
   content: "";
   height: 2px;
   width: 100%;
-  background-color: #01d27f;
+  background-color: #2AC9AA;
   position: absolute;
   top: 16px;
   left: 50%;
@@ -55,7 +55,7 @@
 }
 .multi-steps > li.is-active:before {
   background-color: #f6f6f6;
-  border-color: #01d27f;
+  border-color: #2AC9AA;
 }
 .multi-steps > li.is-active ~ li {
   color: #808080;

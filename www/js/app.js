@@ -1,11 +1,6 @@
 // Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'ionic-search-bar', 'ionic.closePopup', 'controllers', 'services', 'starter.directives']);
+var app = angular.module('starter', ['ionic', 'ngMessages', 'ion-floating-menu', 'ionic-search-bar', 'ionic.closePopup', 'controllers', 'services', 'starter.directives']);
 var services = angular.module('services', []);
 var controllers = angular.module('controllers', []);
 
@@ -52,7 +47,6 @@ app
   $ionicConfigProvider.spinner.icon('spiral');
 
 
-
   $stateProvider
 
   // setup an abstract state for the tabs directive
@@ -90,12 +84,32 @@ app
       }
   })
 
+.state('tab.explore-profile', {
+    url: '/explore/profile',
+    views: {
+      'tab-explore': {
+        templateUrl: 'templates/user-profile.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
   .state('tab.tag-list', {
     url: '/explore/tag-list/:tagID',
     cacheView: false,
     views: {
       'tab-explore': {
         templateUrl: 'templates/tag-list.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.tag-profile', {
+    url: '/explore/tag-list/profile',
+    views: {
+      'tab-explore': {
+        templateUrl: 'templates/user-profile.html',
         controller: 'MainCtrl'
       }
     }
@@ -123,11 +137,31 @@ app
     }
   })
 
+  .state('tab.search-profile', {
+    url: '/search/profile',
+    views: {
+      'tab-explore': {
+        templateUrl: 'templates/user-profile.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
   .state('tab.visualization', {
     url: '/visualization',
     views: {
       'tab-visualization': {
         templateUrl: 'templates/tab-visualization.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.visualization-profile', {
+    url: '/visualization/profile',
+    views: {
+      'tab-visualization': {
+        templateUrl: 'templates/user-profile.html',
         controller: 'MainCtrl'
       }
     }
@@ -163,11 +197,31 @@ app
     }
   })
 
+  .state('tab.notification-profile', {
+    url: '/notification/profile',
+    views: {
+      'tab-notification': {
+        templateUrl: 'templates/user-profile.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
   .state('tab.account', {
     url: '/account',
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.account-profile', {
+    url: '/account/profile',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/user-profile.html',
         controller: 'MainCtrl'
       }
     }

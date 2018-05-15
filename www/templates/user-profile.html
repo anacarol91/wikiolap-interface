@@ -1,0 +1,48 @@
+<ion-view id="profile-tabs" view-title="{{user.name}}" hide-nav-bar="false">
+
+	<ion-nav-title align="left">
+		{{user.name}}
+	</ion-nav-title>
+
+	<ion-content id="profile" class="container">
+		<div class="profile-header">
+			<div class="user-box">
+			    <img class="avatar" ng-src="{{user.avatar}}">
+			</div>
+			<div class="follow-box">
+				<div class="profile-header" style="width: 92%">
+					<div class="user-box">
+						<p ng-bind="userVisualizations.length"></p>
+						<h3>Visualizações</h3>
+					</div>
+					<div class="user-box" ng-click="openUserListModal('Seguindo', user.following)">
+					    <p ng-bind="user.following.length"></p>
+						<h3>Seguindo</h3>
+					</div>
+					<div class="user-box" ng-click="openUserListModal('Seguidores', user.followers)">
+					    <p ng-bind="user.followers.length"></p>
+						<h3>Seguidores</h3>
+					</div>
+				</div>
+				<button class="button follow-btn">SEGUIR</button>
+			</div>
+		</div>
+
+	</ion-content>
+
+	<ion-tabs class="tabs-top tabs-light tabs-striped">
+	  <ion-tab title="VISUALIZAÇÕES" >
+	    <ion-pane class="container has-tabs tab-adjust" has-bouncing="true">
+	      <visualization-card-list list="userVisualizations"></visualization-card-list>
+	    </ion-pane>
+	  </ion-tab>
+
+	  <ion-tab title="DATASETS">
+	    <ion-pane class="container has-tabs tab-adjust" has-bouncing="true">
+	      <dataset-card-list list="userDatasets"></dataset-card-list>
+	    </ion-pane>
+	  </ion-tab>
+	</ion-tabs>
+
+</ion-view>
+

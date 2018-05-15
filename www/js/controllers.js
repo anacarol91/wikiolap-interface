@@ -1,6 +1,7 @@
 controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users) {
   $scope.$on('$ionicView.enter', function(e) {
     console.log('enter main controller');
+
     $scope.search = {};
     $scope.listTitle = '';
 
@@ -19,35 +20,18 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.myVisualizations = Visualizations.getByUser(0);
     $scope.myFollowed = Visualizations.getFollowed();
     $scope.myLiked = Visualizations.getLiked();
+
+    $scope.name = '';
+    $scope.description = '';
+
+    var userID = Users.getID();
+    $scope.user = Users.get(userID);
+    $scope.userVisualizations = Visualizations.getByUser(userID);
+    $scope.userDatasets = Datasets.getByUser(userID);
   });
 
   $scope.getTag = (itemID) => {
     $scope.tag = Tags.get(itemID);
-  }
-
-  var getAccountList = (listName) => {
-    console.log(listName);
-    $scope.isDS = false;
-    switch(listName) {
-      case 'datasets':
-        $scope.isDS = true;
-        $scope.listTitle = 'Meus Datasets';
-        $scope.accountList = Datasets.getByUser(0);
-        break;
-      case 'visualizations':
-        $scope.listTitle = 'Minhas Visualizações';
-        $scope.accountList = Visualizations.getByUser(0);
-        break;
-      case 'followed':
-        $scope.listTitle = 'Visualizações Seguidas';
-        $scope.accountList = Visualizations.getFollowed();
-        break;
-      case 'liked':
-        $scope.listTitle = 'Visualizações Curtida';
-        $scope.accountList = Visualizations.getLiked();
-        break;
-      default: break;
-    }
   }
 
   $scope.refreshAll = function () {
@@ -82,8 +66,21 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
   $scope.openStep03 = function(){
     $state.go('tab.step03');
   }
-  $scope.openList = function(title){
+  $scope.openList = function(){
     $state.go('tab.explore-list');
+  }
+
+  $scope.openExplore = function(){
+    $state.go('tab.explore');
+  }
+
+  $scope.openUserProfile = function(itemID){
+    let state = $state.current.name.split('-')[0] + '-profile';
+    console.log($state.name);
+    console.log(state);
+
+    $state.go(state, {  }, { location: false, reload: true });
+    Users.setID(itemID);
   }
 
   // $scope.selectTabWithIndex = function(index) {
@@ -104,15 +101,71 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.popover.hide();
   };
 
-  $scope.userListAlert = function(title, list) {
-    $scope.listTitle = title;
-    $scope.userList = list;
-    var alertPopup = $ionicPopup.prompt({
-       title: 'Password Check',
-       templateUrl: 'templates/popups/user-list.html'
-     });
-    IonicClosePopupService.register(alertPopup); // condição para ionic-close-popup
-  };
+  $scope.showEixoX = function() {
+    var eixoXPopup = $ionicPopup.prompt({
+        scope: $scope,
+        buttons: false,
+        title: 'Eixo X',
+        templateUrl: 'templates/popups/eixo-x.html'
+   })
+    IonicClosePopupService.register(eixoXPopup);
+
+    $scope.closeEixoX = function(){
+      eixoXPopup.close();
+    };
+  }
+
+  $scope.showEixoY = function() {
+    var eixoYPopup = $ionicPopup.prompt({
+        scope: $scope,
+        buttons: false,
+        title: 'Eixo Y',
+        templateUrl: 'templates/popups/eixo-y.html'
+   })
+    IonicClosePopupService.register(eixoYPopup);
+
+    $scope.closeEixoY = function(){
+      eixoYPopup.close();
+    };
+  }
+
+  $scope.showDelete = function() {
+    var deletePopup = $ionicPopup.prompt({
+        scope: $scope,
+        buttons: false,
+        title: 'Tem certeza que deseja remover este item?',
+        templateUrl: 'templates/popups/delete.html'
+   })
+    IonicClosePopupService.register(deletePopup);
+
+    $scope.closeDelete = function(){
+      deletePopup.close();
+    };
+  }
+
+  $scope.showConcluir = function() {
+    var concluirPopup = $ionicPopup.prompt({
+        scope: $scope,
+        buttons: false,
+        title: 'Tem certeza que deseja postar a visualização?',
+        templateUrl: 'templates/popups/concluir.html'
+   })
+    IonicClosePopupService.register(concluirPopup);
+
+    $scope.closeConcluir = function(){
+      concluirPopup.close();
+    };
+  }
+
+  $scope.concluirAlert = function() {
+      var alertPopup = $ionicPopup.alert({
+         title: 'Sua visualização foi postada com sucesso!'
+      });
+
+      alertPopup.then(function(res) {
+        $scope.openExplore();
+      });
+   };
 
   $ionicModal.fromTemplateUrl('templates/modals/visualization-detail.html', {
       scope: $scope,
@@ -155,10 +208,8 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
       $scope.modal2 = modal;
     });
     $scope.openUserModal = function(itemID) {
-      console.log('open modal user ' + itemID);
       $scope.user = Users.get(itemID);
       console.log($scope.user);
-
       $scope.userVisualizations = Visualizations.getByUser(itemID);
       console.log($scope.userVisualizations);
       $scope.userDatasets = Datasets.getByUser(itemID);
@@ -175,28 +226,26 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     }).then(function(modal) {
       $scope.modal3 = modal;
     });
-    $scope.openAccountListModal = function(title, list) {
+    $scope.openUserListModal = function(title, list) {
       $scope.listTitle = title;
       $scope.userList = list;
       $scope.modal3.show();
     };
-    $scope.closeAccountListModal = function() {
+    $scope.closeUserListModal = function() {
       console.log('fecha modal');
       $scope.modal3.hide();
     };
 
-    $ionicModal.fromTemplateUrl('templates/modals/account-list.html', {
+    $ionicModal.fromTemplateUrl('templates/modals/tag-list.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
       $scope.modal4 = modal;
     });
-    $scope.openAccountListModal = function(list) {
-      getAccountList(list);
+    $scope.openTagList = function() {
       $scope.modal4.show();
     };
-    $scope.closeAccountListModal = function() {
-      console.log('fecha modal');
+    $scope.closeTagList = function() {
       $scope.modal4.hide();
     };
 

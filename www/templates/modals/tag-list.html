@@ -1,0 +1,13 @@
+<ion-modal-view hide-nav-bar="true">
+
+	<ion-content id="dataset-modal" class="container">
+  		<h2 class="list-title">Selecione uma tag</h2>
+		<button ng-click="closeTagList()" class="button button-icon icon ion-ios-close-outline modal-back-icon" style="color: #333 !important; right: 0; position: absolute"></button>
+
+		<div ng-if="!$first" class="search-list" ng-repeat="i in tags | orderBy: 'name'" ng-click="closeTagList()">
+			<p ng-bind="i.name"></p>
+			<hr>
+		</div>
+
+	</ion-content>
+</ion-modal-view>

@@ -1,4 +1,4 @@
-<ion-view view-title="Criar Visualização" hide-nav-bar="true">
+<ion-view id="step03" view-title="Criar Visualização" hide-nav-bar="true">
 
   <ion-content id="add-visualization" class="container" has-bouncing="true">
   	<div class="nav-box">
@@ -8,32 +8,43 @@
         <li>INFORMAÇÕES</li>
         <li class="is-active">EIXOS</li>
       </ul>
-      <p ng-click="closeStep03()">Concluir</p>
+      <!-- <button class="button button-icon icon ion-ios-checkmark-outline" ng-click="showConcluir()"></button> -->
+      <p ng-click="showConcluir()">POSTAR</p>
 	  </div>
 
-    <h4 style="margin:35px 0">Configure os eixos</h4>
+    <h4 style="margin:35px 0 25px">Configure os eixos da visualização</h4>
 
-  	<img style="width: 100%;-bottom: 20px;" class="img-dados" src="img/grafico02.png"/>
+  	<img src="img/grafico05.png"/>
 
   	<h4>Eixo X</h4>
-    <div style="margin: 25px 0 45px;" class="icon-box" ng-click="openDatasetList()">
+    <div class="ds-card" style="margin-bottom: 20px;">
+      <div id="notification-card-list" class="card-adjust">
+        <div class="item adjust" ng-click="showEixoX()">
+          <p>Ano</p>
+        </div>
+      </div>
+      <i ng-click="showDelete()" class="delete icon ion-ios-trash"></i>
+    </div>
+
+    <div style="margin: 0 0 20px;" class="icon-box" ng-click="showEixoX()">
       <i class="plus icon ion-ios-plus-outline"></i>
       <h3>Adicionar eixo X</h3>
     </div>
     <hr>
 
-  	<h4 style="margin-top: 45px">Eixo Y</h4>
+  	<h4 style="margin-top: 40px">Eixo Y</h4>
 
-    <div class="ds-card">
-      <div id="notification-card-list">
-        <div class="item adjust">
+    <div class="ds-card" style="margin-bottom: 20px;">
+      <div id="notification-card-list" class="card-adjust" ng-click="showEixoY()">
+        <div class="item adjust" style="padding: 5px;">
+          <div class="color-square"></div>
           <p>Receita Bruta</p>
         </div>
       </div>
-      <i ng-click="removeDS(0)" class="delete icon ion-ios-trash"></i>
+      <i ng-click="showDelete()" class="delete icon ion-ios-trash"></i>
     </div>
 
-    <div class="icon-box" ng-click="openDatasetList()">
+    <div class="icon-box" ng-click="showEixoY()">
       <i class="plus icon ion-ios-plus-outline"></i>
       <h3>Adicionar eixo Y</h3>
     </div>

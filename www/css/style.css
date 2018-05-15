@@ -33,6 +33,9 @@ h4 {
     font-size: 30px;
 }
 
+.fa {
+	color:  #333;
+}
 /* ion-header-bar {
   -webkit-box-shadow: 0 2px 1px 0 #d6d6d6;
   -moz-box-shadow: 0 2px 1px 0 #d6d6d6;
@@ -59,14 +62,15 @@ h4 {
   -o-box-shadow: 0 2px 1px 0 #d6d6d6;
   box-shadow: 0 2px 1px 0 #d6d6d6;
   background-color: #fff;
-	height: 120px;
+	height: 140px;
 	width: 49%;
 	margin:  0;
 	padding:  0;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 3%;
 }
 
  .square-cards .card.activated {
@@ -86,8 +90,8 @@ h4 {
 .square-cards .card .text-box {
 	position: relative;
     overflow: hidden;
-    width: 95%;
-	padding:  0 10px;
+    width: 100%;
+    padding: 0 8px;
     text-overflow: ellipsis;
 }
 
@@ -147,7 +151,6 @@ h4 {
     justify-content: space-between;
     transition: transform 0s ease-out 0s;
     margin: 0;
-    margin-bottom: 20px;
 }
 
 .tag-box {
@@ -162,7 +165,7 @@ h4 {
 }
 
 .explore-card {
-	width: 160px !important;
+	width: 155px !important;
     height: 150px !important;
     margin: 0;
     margin-right: 7px !important;
@@ -180,24 +183,8 @@ h4 {
     text-decoration: none;
 }
 
-.top-visualization {
-	width: 100% !important;
-	height: 200px !important;
-    margin-bottom: 10px;
-}
-
-.top-visualization img {
-	width: 70%;
-    display: block;
-    margin: 0 auto;
-}
-
 .text-box {
 	padding: 0 10px;
-}
-
-#visualization img {
-	width: 100%;
 }
 
 .search-list {
@@ -221,7 +208,7 @@ hr {
 	top: 100px !important;
 }
 
-#search-tabs .tab-title {
+#profile-tabs .tab-title, #search-tabs .tab-title {
 	text-transform: uppercase;
     font-size: 11px;
 }
@@ -328,8 +315,6 @@ hr {
 }
 
 #account-menu .avatar {
-	/* border-radius: 50%;
-    width: 50%; */
     width: 64px;
 }
 
@@ -363,7 +348,7 @@ hr {
 	display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 45px
+    margin-bottom: 30px
 }
 
 #add-visualization .icon-box {
@@ -400,7 +385,12 @@ hr {
 
 #add-visualization .list .item {
 	border: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #8c8f91;
+}
+
+#add-visualization input {
+    color: #8c8f91;
+    letter-spacing: 0.5px;
 }
 
  #add-visualization .item-select {
@@ -412,6 +402,8 @@ hr {
  #add-visualization select {
  	left: 0;
     background-color: #f6f6f6;
+    letter-spacing: 0.5px;
+    color: #8c8f91;
  }
 
 .left-buttons .avatar {
@@ -510,7 +502,7 @@ hr {
 
 .popover {
 	height: 180px;
-    width: 167px;
+    width: 167px ;
 }
 
 .popover .container {
@@ -518,3 +510,218 @@ hr {
     background: #fff;
 }
 
+#visualization-card .card {
+	align-items: stretch;
+    justify-content: space-between;
+    height: 170px;
+}
+
+#visualization-card img {
+	width: 100%;
+	max-height: 95px !important;
+	min-height: 95px !important;
+}
+
+#top-visualization .text-box, #visualization-card .card .text-box {
+    width: 100%;
+}
+
+#top-visualization span, #visualization-card span {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#visualization-card hr {
+	margin: 0;
+}
+
+#top-visualization .action-box, #visualization-card .action-box {
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#top-visualization .action-box p, #visualization-card .action-box p {
+    font-size: 12px;
+    margin: 0 0 4px;
+}
+
+#top-visualization .action-box .fa, #visualization-card .action-box .fa {
+    font-size: 20px;
+}
+
+#visualization .explore-card {
+    height: 170px !important;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+
+#top-visualization {
+	width: 100% !important;
+	height: auto !important;
+    margin-bottom: 15px;
+}
+
+#top-visualization img {
+	width: 100%;
+    max-height: 250px;
+}
+
+#tags .scroll {
+	margin-bottom: 20px;
+}
+
+.has-error {
+	color: #ff4a3d;
+	border-color: #ff4a3d !important;
+}
+
+#step03 img {
+	width: 100%;
+	bottom: 20px;
+}
+
+#step03 .card-adjust {
+	width: 50%;
+	align-items: center;
+}
+
+#step03 .adjust p {
+	font-size: 16px;
+}
+
+#step03 .adjust {
+	width: auto;
+	display: flex;
+    padding: 15px;
+    align-items: center;
+}
+
+.color-square {
+	height: 40px;
+    width: 40px;
+    background-color: #00d1f0;
+    margin-right: 10px;
+}
+
+.popup-container .popup {
+    width: 300px;
+    padding: 5px;
+}
+
+.popup-title {
+	color: #333;
+    font-size: 18px;
+    text-transform: none;
+}
+
+.popup-head {
+	 padding-bottom: 0;
+}
+
+.popup-body {
+	padding-top: 0;
+}
+
+.popup-body p {
+	color: #8c8f91;
+	margin:  15px 0 10px;
+	letter-spacing: 0.5px;
+}
+
+#popup-form .list {
+	border: none;
+    background: transparent;
+}
+
+#popup-form .item {
+	border: none;
+	border-bottom: 1px solid #8c8f91;
+    background: transparent;
+}
+
+#popup-form .item-select {
+ 	padding: 20px;
+    background-color: #f6f6f6;
+    margin-top: 35px;
+ }
+
+ #popup-form select {
+ 	left: 0;
+    background-color: #f6f6f6;
+    letter-spacing: 0.5px;
+    color: #8c8f91;
+    padding: 6px 0 5px 7px;
+ }
+
+ #popup-form .color-item {
+ 	border-bottom: none;
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: space-between;
+ 	padding-bottom: 10px;
+ }
+
+ #popup-form .color-square {
+ 	height: 30px;
+    width: 75px;
+ }
+
+ .button-box {
+ 	display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+ }
+
+.button-box .button {
+	font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    width: 40% !important;
+}
+
+ .button-box .popup-ok {
+	background-color: #2AC9AA;
+	color:  #fff;
+}
+
+.popup-cancel {
+	box-shadow: none;
+    background: transparent;
+    color: #333;
+    font-weight: 500;
+}
+
+.button.button-positive {
+    border-color: transparent;
+    background-color: #2AC9AA;
+    color: #fff;
+}
+
+#profile-tabs .tabs-top > .tabs{
+	top: 160px !important;
+    background-color: #f6f6f6;
+    border-top: 1px solid #ddd !important;
+}
+
+#profile-tabs .tab-adjust {
+    top: 215px !important;
+}
+
+.follow-btn {
+    border: 1px solid #333;
+    width: 60%;
+    min-height: 27px;
+    margin-top: 8px;
+    line-height: 27px;
+    font-size: 13px;
+}
+
+.follow-box {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

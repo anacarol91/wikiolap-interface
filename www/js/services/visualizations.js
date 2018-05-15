@@ -32,7 +32,7 @@ services.factory('Visualizations', function() {
   // Some fake testing data
   var visualizations = [{
     id: 0,
-    name: 'Visualização 00',
+    name: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: ana,
@@ -40,7 +40,7 @@ services.factory('Visualizations', function() {
     thumb: '',
     follow: false,
     liked: false,
-    likes: [ismael, glivia, flavio],
+    likes: [ismael, glivia],
     comments: [{
       user: ismael,
       text: 'Muito legal!!',
@@ -78,7 +78,7 @@ services.factory('Visualizations', function() {
     tag: 2
   }, {
     id: 2,
-    name: 'Visualização 02',
+    name: 'Indicadores sobre Aquicultura familiar',
     description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: flavio,
@@ -119,7 +119,7 @@ services.factory('Visualizations', function() {
     follow: true,
     liked: true,
     likes: [ana, ismael],
-    comments: [,{
+    comments: [{
       user: ana,
       text: 'Gostei bastante, muito útil',
       time: '4d',
@@ -130,15 +130,15 @@ services.factory('Visualizations', function() {
     tag: 4
   }, {
     id: 4,
-    name: 'Visualização 04',
-    description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
+    name: 'Proporção de pacientes HIV positivo',
+    description: 'Este indicador expressa o poder de captação precoce dos casos de HIV positivo para tratamento a partir do nível de comprometimentodo sistema imunológico dos indivíduos infectados ao serem testados para verificação de indicação de Terapia Anti Retroviral(TARV)',
     color: '',
     user: ana,
     img: img01,
     thumb: '',
     follow: false,
     liked: false,
-    likes: [flavio, ismael],
+    likes: [flavio, ismael, glivia, ana],
     comments: [{
       user: glivia,
       text: 'Gostei bastante, muito útil',
@@ -190,7 +190,7 @@ services.factory('Visualizations', function() {
     thumb: '',
     follow: false,
     liked: true,
-    likes: [ana, flavio, glivia, ismael],
+    likes: [],
     comments: [{
       user: ismael,
       text: 'Os dados parecem estar incorretos!',

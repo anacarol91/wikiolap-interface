@@ -1,8 +1,13 @@
-<div class="square-cards">
-  <div class="card" ng-repeat="i in list" ng-click="openVisualizationModal(i.id)" style="margin-bottom: 5%; height: 150px">
+<div id="visualization-card" class="square-cards">
+  <div class="card" ng-repeat="i in list" ng-click="openVisualizationModal(i.id)">
     <img ng-src="{{i.img}}">
     <div class="text-box">
       <span>{{i.name}}</span>
     </div>
+    <hr>
+    <div class="action-box">
+		<p ng-click="i.liked = !i.liked"><i class="fa" aria-hidden="true" ng-class="i.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> {{i.likes.length}}</p>
+		<p><i class="fa fa-comment-o" aria-hidden="true"></i> {{i.comments.length}}</p>
+	</div>
   </div>
 </div>

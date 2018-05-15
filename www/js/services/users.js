@@ -65,6 +65,13 @@ services.factory('Users', function() {
         }
       }
       return null;
+    },
+    setID: function(userID) {
+      this.user = userID;
+    },
+    getID: function() {
+      return this.user;
     }
+
   };
 })

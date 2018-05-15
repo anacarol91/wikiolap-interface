@@ -1,0 +1,31 @@
+<hr>
+<form id="popup-form" name="xForm" novalidate>
+    <div class="list">
+	  <label class="item item-input item-floating-label" ng-class="{ 'has-error': xForm.name.$touched && xForm.name.$invalid }">
+	    <span class="input-label">Rótulo</span>
+	    <input type="text" placeholder="Rótulo" name="name" ng-model="name">
+	  </label>
+	  <div class="has-error" ng-messages="xForm.name.$error" ng-if="xForm.name.$touched">
+        <p ng-message="required">Campo obrigatório.</p>
+   	  </div>
+
+	  <label class="item item-input item-select">
+	    <select>
+	      <option>receita_bruta</option>
+	      <option>codigo_ano</option>
+	      <option>codigo_mes</option>
+	    </select>
+	  </label>
+
+	  <label class="item color-item">
+	    <span class="input-label">Cor</span>
+	    <div class="color-square"></div>
+	  </label>
+	</div>
+</form>
+
+<hr>
+<div class="button-box">
+	<button class="button popup-cancel" ng-click="closeEixoY()">Cancelar</button>
+	<button class="button popup-ok" ng-click="closeEixoY()">Salvar</button>
+</div>

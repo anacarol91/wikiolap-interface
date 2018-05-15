@@ -6,7 +6,7 @@
   		<hr>
 
   		<div class="creation-box">
-  			<div class="user-box" ng-click="openUserModal(dataset.user.id)">
+  			<div class="user-box" ng-click="openUserProfile(dataset.user.id); closeDatasetModal()">
 			    <img class="avatar" ng-src="{{dataset.user.avatar}}">
   				<p ng-bind="dataset.user.name"></p>
   			</div>
@@ -22,8 +22,8 @@
 
   		<h2 class="list-title" style="font-size: 28px">Prévia dos dados</h2>
   		<img class="img-dados" ng-src="{{dataset.data}}"/>
-
-      <div ng-if="showAdd" ng-click="closeDatasetModal()" class="fab button button-icon icon ion-plus"></div>
-
 	</ion-content>
+
+  <ion-floating-button click="closeDatasetModal(); closeDatasetList(); openStep01()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
+  </ion-floating-button>
 </ion-modal-view>

@@ -6,7 +6,7 @@
 		<img class="img-icon" style="right: 35px;" src="img/share.svg"/>
 		<img class="img-icon" src="img/more.svg" ng-click="openPopover($event)"/>
 
-		<div class="user-box" ng-click="openUserModal(visualization.user.id)">
+		<div class="user-box" ng-click="openUserProfile(visualization.user.id); closeVisualizationModal()">
 		    <img class="avatar" ng-src="{{visualization.user.avatar}}">
 			<p ng-bind="visualization.user.name" style="font-weight: 500"></p>
 		</div>
@@ -30,9 +30,9 @@
   		<hr>
 
   		<div class="comment-box" ng-repeat="i in visualization.comments">
-  			<img class="avatar" ng-src="{{i.user.avatar}}" style="align-self: baseline;" ng-click="openUserModal(i.user.id)">
+  			<img class="avatar" ng-src="{{i.user.avatar}}" style="align-self: baseline;" ng-click="openUserProfile(i.user.id); closeVisualizationModal()">
   			<div class="text-box">
-				<p ng-bind="i.user.name" class="user-name" ng-click="openUserModal(i.user.id)"></p>
+				<p ng-bind="i.user.name" class="user-name" ng-click="openUserProfile(i.user.id); closeVisualizationModal()"></p>
 				<p ng-bind="i.text"></p>
 				<div class="time-box">
 					<h3 style="margin-right: 20px;">{{i.time}}</h3>

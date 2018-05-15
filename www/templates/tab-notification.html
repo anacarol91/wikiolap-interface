@@ -6,10 +6,10 @@
     <ion-refresher on-refresh="refreshNotifications()" pulling-icon="false"></ion-refresher>
 
     <div id="notification-card-list">
-	  <div class="item item-avatar" ng-repeat="i in notifications" ng-click="openVisualizationModal(i.id)">
-	    <img ng-src="{{i.user.avatar}}" ng-click="openUserModal(i.user.id); $event.stopPropagation()">
+	  <div class="item item-avatar" ng-repeat="i in notifications" ng-click="openVisualizationModal(i.id); $event.stopPropagation()">
+	    <img ng-src="{{i.user.avatar}}" ng-click="openUserProfile(i.user.id); $event.stopPropagation()">
 	    <span class="time">{{i.time}}</span>
-	    <p><span class="name"  ng-click="openUserModal(i.user.id); $event.stopPropagation()">{{i.user.name}}</span>{{i.action}}</p>
+	    <p><span class="name"  ng-click="openUserProfile(i.user.id); $event.stopPropagation()">{{i.user.name}}</span>{{i.action}}</p>
 	  </div>
 	</div>
 
