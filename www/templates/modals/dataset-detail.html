@@ -8,10 +8,13 @@
   		<div class="creation-box">
   			<div class="user-box" ng-click="openUserModal(dataset.user.id)">
 			    <img class="avatar" ng-src="{{dataset.user.avatar}}">
-				<p ng-bind="dataset.user.name"></p>
-			</div>
-			<h3 style="margin-top: 0"><i class="icon ion-android-calendar"></i>Criado em {{dataset.creation}}</h3>
-		</div>
+  				<p ng-bind="dataset.user.name"></p>
+  			</div>
+        <div>
+          <h3 style="margin-top: 0"><i class="icon ion-ios-pie-outline"></i>Fonte de {{dataset.visualizations}} visualizações</h3>
+    			<h3 style="margin-top: 0"><i class="icon ion-android-calendar"></i>Criado em {{dataset.creation}}</h3>
+        </div>
+  		</div>
   		<hr>
 
   		<p class="description" ng-bind="dataset.description"></p>

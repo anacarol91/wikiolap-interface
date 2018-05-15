@@ -27,7 +27,7 @@
     </div>
 
     <ion-scroll id="visualization" direction="x" class="scrol-list square-cards">
-      <div class="card explore-card" ng-repeat="i in visualizations | orderBy: 'likes.length'" item="i" ng-hide="$first" ng-click="openVisualizationModal(i.id)" >
+      <div class="card explore-card" ng-repeat="i in visualizations | orderBy: '-likes.length'" item="i" ng-hide="$first" ng-click="openVisualizationModal(i.id)" >
         <img ng-src="{{i.img}}">
         <div class="text-box">
           <span>{{i.name}}</span>
@@ -47,12 +47,12 @@
     </ion-scroll>
 
     <div class="explore-title">
-      <h4>Datasets</h4>
+      <h4>Datasets mais usados</h4>
       <a href="#/tab/explore/list/Datasets">VER TODOS</a>
     </div>
 
     <ion-scroll direction="x" class="scrol-list square-cards">
-      <div class="card explore-card" ng-repeat="i in datasets" item="i" ng-click="openDatasetModal(i.id, false)" >
+      <div class="card explore-card" ng-repeat="i in datasets | orderBy: '-visualizations'" item="i" ng-click="openDatasetModal(i.id, false)" >
         <img ng-src="{{i.img}}">
         <div class="text-box">
           <span>{{i.name}}</span>

@@ -133,6 +133,26 @@ app
     }
   })
 
+  .state('tab.step02', {
+    url: '/visualization/step02',
+    views: {
+      'tab-visualization': {
+        templateUrl: 'templates/step02.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('tab.step03', {
+    url: '/visualization/step03',
+    views: {
+      'tab-visualization': {
+        templateUrl: 'templates/step03.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
   .state('tab.notification', {
     url: '/notification',
     views: {
@@ -156,6 +176,6 @@ app
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/timeline');
+  $urlRouterProvider.otherwise('/tab/explore');
 
 });

@@ -3,20 +3,53 @@
 	<ion-content id="dataset-modal" class="container">
 		<back-button ng-click="closeVisualizationModal()"></back-button>
   		<h2 class="list-title" style="margin-bottom: 10px">{{visualization.name}}</h2>
+		<img class="img-icon" style="right: 35px;" src="img/share.svg"/>
+		<img class="img-icon" src="img/more.svg" ng-click="openPopover($event)"/>
+
+		<div class="user-box" ng-click="openUserModal(visualization.user.id)">
+		    <img class="avatar" ng-src="{{visualization.user.avatar}}">
+			<p ng-bind="visualization.user.name" style="font-weight: 500"></p>
+		</div>
+		<hr>
+
+		<p class="description" ng-bind="visualization.description"></p>
   		<hr>
 
-		<div class="user-box">
-		    <img class="avatar" ng-src="{{visualization.user.avatar}}">
-			<p ng-bind="visualization.user.name"></p>
+  		<div ng-if="tag.id == visualization.tag" ng-repeat="tag in tags" class="tag-box" style="margin: 5px 0 15px">
+	    {{tag.name}}
 		</div>
 
   		<img class="img-dados" ng-src="{{visualization.img}}"/>
+  		<div class="like-box">
+  			<h3>{{visualization.likes.length}} curtidas</h3>
+	  		<div class="action-box">
+	  			<p ng-click="visualization.liked = !visualization.liked"><i class="fa" aria-hidden="true" ng-class="visualization.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> Curtir</p>
+	  			<p><i class="fa fa-comment-o" aria-hidden="true"></i> Comentar</p>
+	  		</div>
+	  	</div>
   		<hr>
-  		<p class="description" ng-bind="visualization.description"></p>
-  		<hr>
 
+  		<div class="comment-box" ng-repeat="i in visualization.comments">
+  			<img class="avatar" ng-src="{{i.user.avatar}}" style="align-self: baseline;" ng-click="openUserModal(i.user.id)">
+  			<div class="text-box">
+				<p ng-bind="i.user.name" class="user-name" ng-click="openUserModal(i.user.id)"></p>
+				<p ng-bind="i.text"></p>
+				<div class="time-box">
+					<h3 style="margin-right: 20px;">{{i.time}}</h3>
+					<h3>{{i.likes}} curtidas</h3>
+				</div>
+				<hr>
+  			</div>
+  			<i ng-click="i.liked = !i.liked" class="fa comment-like" aria-hidden="true" ng-class="i.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i>
+  		</div>
 
-
-
+  		<div id="comment-input" class="item item-input-inset">
+		    <label class="item-input-wrapper">
+		      <textarea placeholder="Adicione um comentário..."></textarea>
+		    </label>
+		    <button class="button button-small">
+		      Publicar
+		    </button>
+		  </div>
 	</ion-content>
 </ion-modal-view>

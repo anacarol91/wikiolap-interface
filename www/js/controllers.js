@@ -1,4 +1,4 @@
-controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users) {
+controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users) {
   $scope.$on('$ionicView.enter', function(e) {
     console.log('enter main controller');
     $scope.search = {};
@@ -14,6 +14,11 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.listType = $stateParams.type;
     $scope.tag = Tags.get($stateParams.tagID);
     $scope.tagVisualizations = Visualizations.getByTag($stateParams.tagID);
+
+    $scope.myDatasets = Datasets.getByUser(0);
+    $scope.myVisualizations = Visualizations.getByUser(0);
+    $scope.myFollowed = Visualizations.getFollowed();
+    $scope.myLiked = Visualizations.getLiked();
   });
 
   $scope.getTag = (itemID) => {
@@ -68,7 +73,15 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
   $scope.openSearch = function(){
     $state.go('tab.search');
   }
-
+  $scope.openStep01 = function(){
+    $state.go('tab.visualization');
+  }
+  $scope.openStep02 = function(){
+    $state.go('tab.step02');
+  }
+  $scope.openStep03 = function(){
+    $state.go('tab.step03');
+  }
   $scope.openList = function(title){
     $state.go('tab.explore-list');
   }
@@ -78,7 +91,20 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
   //   $state.go('tab.search');
   // }
 
-   $scope.userListAlert = function(title, list) {
+  $ionicPopover.fromTemplateUrl('templates/popups/popover.html', {
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+
+  $scope.userListAlert = function(title, list) {
     $scope.listTitle = title;
     $scope.userList = list;
     var alertPopup = $ionicPopup.prompt({
@@ -96,6 +122,7 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     });
     $scope.openVisualizationModal = function(itemID) {
       console.log('open modal ' + itemID);
+      $scope.tags = Tags.all();
       $scope.visualization = Visualizations.get(itemID);
       $scope.modal1.show();
     };
@@ -186,32 +213,6 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
       $scope.modal5.hide();
     };
 
-    $ionicModal.fromTemplateUrl('templates/modals/step02.html', {
-      scope: $scope,
-      animation: 'fade-in'
-    }).then(function(modal) {
-      $scope.modal6 = modal;
-    });
-    $scope.openStep02 = function() {
-      $scope.modal6.show();
-    };
-    $scope.closeStep02 = function() {
-      $scope.modal6.hide();
-    };
-
-    $ionicModal.fromTemplateUrl('templates/modals/step03.html', {
-      scope: $scope,
-      animation: 'fade-in'
-    }).then(function(modal) {
-      $scope.modal7 = modal;
-    });
-    $scope.openStep03 = function() {
-      $scope.modal7.show();
-    };
-    $scope.closeStep03 = function() {
-      $scope.modal7.hide();
-    };
-
     // Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
@@ -220,9 +221,7 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
       $scope.modal3.remove();
       $scope.modal4.remove();
       $scope.modal5.remove();
-      $scope.modal6.remove();
-      $scope.modal7.remove();
-
+      $scope.popover.remove();
   });
 });
 

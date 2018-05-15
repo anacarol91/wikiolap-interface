@@ -1,12 +1,17 @@
-<ion-modal-view view-title="Criar Visualização" hide-nav-bar="true">
+<ion-view view-title="Criar Visualização" hide-nav-bar="true">
 
   <ion-content id="add-visualization" class="container" has-bouncing="true">
   	<div class="nav-box">
-	  <back-button ng-click="closeStep02()"></back-button>
-      <p ng-click="openStep03()">Avançar</p>
-	</div>
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+      <ul class="list-unstyled multi-steps">
+        <li>DATASETS</li>
+        <li class="is-active">INFORMAÇÕES</li>
+        <li>EIXOS</li>
+      </ul>
+      <button class="button button-icon icon ion-ios-arrow-forward" ng-click="openStep03()"></button>
+    </div>
 
-    <h4 style="margin-bottom: 45px;"><span>2</span> Preencha as informações da visualização</h4>
+    <h4 style="margin:35px 0"> Preencha as informações da visualização</h4>
 
     <div class="list">
 	  <label class="item item-input item-floating-label">
@@ -41,5 +46,5 @@
     </div>
 
   </ion-content>
-</ion-modal-view>
+</ion-view>
 

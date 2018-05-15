@@ -2,11 +2,16 @@
 
   <ion-content id="add-visualization" class="container" has-bouncing="true">
     <div class="nav-box">
-      <back-button style="visibility: hidden;" ng-click="closeStep02()"></back-button>
-      <p ng-click="openStep02()">Avançar</p>
+      <button class="button button-icon icon ion-ios-arrow-back" style="visibility: hidden"></button>
+      <ul class="list-unstyled multi-steps">
+        <li class="is-active">DATASETS</li>
+        <li>INFORMAÇÕES</li>
+        <li>EIXOS</li>
+      </ul>
+      <button class="button button-icon icon ion-ios-arrow-forward" ng-click="openStep02()"></button>
     </div>
 
-    <h4 style="margin-bottom: 45px;"><span>1</span> Escolha um ou mais<br>datasets</h4>
+    <h4 style="margin: 35px 0;">Escolha um ou mais<br>datasets</h4>
 
     <div class="ds-card">
       <div id="notification-card-list">

@@ -40,8 +40,14 @@ services.factory('Visualizations', function() {
     thumb: '',
     follow: false,
     liked: false,
-    likes: [],
-    comments: [{}],
+    likes: [ismael, glivia, flavio],
+    comments: [{
+      user: ismael,
+      text: 'Muito legal!!',
+      time: '2h',
+      likes: 23,
+      liked: true
+    }],
     datasets: [{}],
     tag: 1
   }, {
@@ -55,7 +61,19 @@ services.factory('Visualizations', function() {
     follow: true,
     liked: false,
     likes: [ana, flavio],
-    comments: [{}],
+    comments: [{
+      user: flavio,
+      text: 'Os dados parecem estar incorretos!',
+      time: '4d',
+      likes: 3,
+      liked: false
+    },{
+      user: glivia,
+      text: 'Gostei bastante, muito útil',
+      time: '4d',
+      likes: 9,
+      liked: true
+    }],
     datasets: [{}],
     tag: 2
   }, {
@@ -69,7 +87,25 @@ services.factory('Visualizations', function() {
     follow: true,
     liked: true,
     likes: [ana],
-    comments: [{}],
+    comments: [{
+      user: ismael,
+      text: 'Os dados parecem estar incorretos!',
+      time: '3h',
+      likes: 0,
+      liked: false
+    },{
+      user: glivia,
+      text: 'Gostei bastante, muito útil',
+      time: '4d',
+      likes: 9,
+      liked: true
+    },{
+      user: ana,
+      text: 'Bacana',
+      time: '2m',
+      likes: 2,
+      liked: false
+    }],
     datasets: [{}],
     tag: 3
   }, {
@@ -83,7 +119,13 @@ services.factory('Visualizations', function() {
     follow: true,
     liked: true,
     likes: [ana, ismael],
-    comments: [{}],
+    comments: [,{
+      user: ana,
+      text: 'Gostei bastante, muito útil',
+      time: '4d',
+      likes: 9,
+      liked: false
+    }],
     datasets: [{}],
     tag: 4
   }, {
@@ -97,7 +139,19 @@ services.factory('Visualizations', function() {
     follow: false,
     liked: false,
     likes: [flavio, ismael],
-    comments: [{}],
+    comments: [{
+      user: glivia,
+      text: 'Gostei bastante, muito útil',
+      time: '4d',
+      likes: 9,
+      liked: true
+    },{
+      user: flavio,
+      text: 'Bacana',
+      time: '2m',
+      likes: 5,
+      liked: true
+    }],
     datasets: [{}],
     tag: 2
   }, {
@@ -111,7 +165,19 @@ services.factory('Visualizations', function() {
     follow: false,
     liked: false,
     likes: [flavio, glivia, ismael],
-    comments: [{}],
+    comments: [{
+      user: ismael,
+      text: 'Os dados parecem estar incorretos!',
+      time: '3h',
+      likes: 0,
+      liked: false
+    },{
+      user: flavio,
+      text: 'Gostei bastante, muito útil',
+      time: '4d',
+      likes: 9,
+      liked: true
+    }],
     datasets: [{}],
     tag: 1
   }, {
@@ -125,7 +191,13 @@ services.factory('Visualizations', function() {
     follow: false,
     liked: true,
     likes: [ana, flavio, glivia, ismael],
-    comments: [{}],
+    comments: [{
+      user: ismael,
+      text: 'Os dados parecem estar incorretos!',
+      time: '3h',
+      likes: 12,
+      liked: false
+    }],
     datasets: [{}],
     tag: 2
   }, {

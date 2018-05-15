@@ -33,6 +33,18 @@ h4 {
     font-size: 30px;
 }
 
+/* ion-header-bar {
+  -webkit-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -moz-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -ms-box-shadow: 0 2px 1px 0 #d6d6d6;
+  -o-box-shadow: 0 2px 1px 0 #d6d6d6;
+  box-shadow: 0 2px 1px 0 #d6d6d6;
+} */
+
+.button-icon .icon {
+	color:  #333;
+}
+
 .square-cards {
 	display: flex;
     flex-direction: row;
@@ -234,6 +246,7 @@ hr {
 
 #dataset-modal .img-dados {
 	width: 100%;
+	margin-bottom: 10px;
 }
 
 #dataset-modal .list-title {
@@ -400,3 +413,108 @@ hr {
  	left: 0;
     background-color: #f6f6f6;
  }
+
+.left-buttons .avatar {
+ 	width: 42px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    height: 42px;
+ }
+
+ .no-shadow {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
+.action-box {
+	display:  flex;
+	align-items: baseline;
+	justify-content: space-evenly;
+	width: 50%;
+}
+
+.like-box .fa {
+	font-size: 20px;
+}
+
+.like-box {
+	display:  flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+.time-box {
+    display: flex;
+    align-items: baseline;
+}
+
+.time-box h3 {
+	text-transform: none
+}
+
+.text-box {
+	width: 80%;
+}
+
+.text-box p {
+	margin: 0;
+}
+
+.comment-box {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+	font-weight: 500;
+    font-size: 13px;
+}
+
+.comment-like {
+	position: absolute;
+    right: 0;
+	font-size: 18px !important;
+}
+
+#comment-input {
+	background-color: #f6f6f6 !important;
+	border:  none;
+}
+
+#comment-input .item-input-wrapper {
+	background-color: #fff !important;
+	border: 1px solid #8c8f91 !important;
+}
+
+#comment-input textarea {
+	width: 100%;
+}
+
+#comment-input button {
+	background-color: #f6f6f6;
+    color: #333;
+    font-size: 15px;
+    border: 1px solid #8c8f91;
+    padding: 5px;
+}
+
+.img-icon {
+	width: 25px;
+    right: 0;
+    position: absolute;
+    margin-top: 7px;
+}
+
+.popover {
+	height: 180px;
+    width: 167px;
+}
+
+.popover .container {
+    padding: 0 8%;
+    background: #fff;
+}
+

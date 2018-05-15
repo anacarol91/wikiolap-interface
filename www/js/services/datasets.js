@@ -37,6 +37,7 @@ services.factory('Datasets', function() {
     data: previaDados,
     user: ismael,
     tags: "#agricultura",
+    visualizations: 2
   },{
     id: 1,
     name: 'Microdados do Censo da Educação Superior',
@@ -45,7 +46,8 @@ services.factory('Datasets', function() {
     creation: '26/03/2012',
     data: previaDados,
     user: glivia,
-    tags: '#educação'
+    tags: '#educação',
+    visualizations: 5
   },
   {
     id: 2,
@@ -55,7 +57,8 @@ services.factory('Datasets', function() {
     creation: '19/08/2013',
     data: previaDados,
     user: flavio,
-    tags: '#educação'
+    tags: '#educação',
+    visualizations: 10
   },
   {
     id: 3,
@@ -65,7 +68,8 @@ services.factory('Datasets', function() {
     creation: '19/05/2015',
     data: previaDados,
     user: ana,
-    tags: '#saúde'
+    tags: '#saúde',
+    visualizations: 6
   },
   {
     id: 4,
@@ -75,7 +79,8 @@ services.factory('Datasets', function() {
     creation: '08/01/2018',
     data: previaDados,
     user: ana,
-    tags: '#investimentos'
+    tags: '#investimentos',
+    visualizations: 0
   }];
 
   return {
