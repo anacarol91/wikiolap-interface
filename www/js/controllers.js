@@ -1,4 +1,4 @@
-controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users) {
+controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users, Timeline) {
   $scope.$on('$ionicView.enter', function(e) {
     console.log('enter main controller');
 
@@ -10,6 +10,7 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.visualizations = Visualizations.all();
     $scope.notifications = Notifications.all();
     $scope.users = Users.all();
+    $scope.timeline = Timeline.all();
     $scope.mainUser = $scope.users[0];
 
     $scope.listType = $stateParams.type;
@@ -23,12 +24,23 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
 
     $scope.name = '';
     $scope.description = '';
+    $scope.cadastro = true;
+    $scope.logado = true;
 
     var userID = Users.getID();
     $scope.user = Users.get(userID);
     $scope.userVisualizations = Visualizations.getByUser(userID);
     $scope.userDatasets = Datasets.getByUser(userID);
   });
+
+  $scope.changeLogin = function() {
+    $scope.cadastro = !$scope.cadastro;
+  }
+
+  $scope.doLogin = function() {
+    $scope.logado = true;
+    $scope.closeLogin();
+  }
 
   $scope.getTag = (itemID) => {
     $scope.tag = Tags.get(itemID);
@@ -43,6 +55,11 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
 
   $scope.refreshNotifications = function () {
     $scope.notifications = Notifications.all();
+    $scope.$broadcast('scroll.refreshComplete');
+  }
+
+  $scope.refreshTimeline = function () {
+    $scope.timeline = Timeline.all();
     $scope.$broadcast('scroll.refreshComplete');
   }
 
@@ -83,11 +100,6 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     Users.setID(itemID);
   }
 
-  // $scope.selectTabWithIndex = function(index) {
-  //   $ionicTabsDelegate.select(index);
-  //   $state.go('tab.search');
-  // }
-
   $ionicPopover.fromTemplateUrl('templates/popups/popover.html', {
     scope: $scope
   }).then(function(popover) {
@@ -100,6 +112,20 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
   $scope.closePopover = function() {
     $scope.popover.hide();
   };
+
+  $scope.showLogin = function() {
+    var loginPopup = $ionicPopup.prompt({
+        scope: $scope,
+        buttons: false,
+        title: 'WikiOlap',
+        templateUrl: 'templates/popups/login.html'
+   })
+    IonicClosePopupService.register(loginPopup);
+
+    $scope.closeLogin = function(){
+      loginPopup.close();
+    };
+  }
 
   $scope.showEixoX = function() {
     var eixoXPopup = $ionicPopup.prompt({
@@ -201,25 +227,6 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
       $scope.modal.hide();
     };
 
-    $ionicModal.fromTemplateUrl('templates/modals/user-profile.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal2 = modal;
-    });
-    $scope.openUserModal = function(itemID) {
-      $scope.user = Users.get(itemID);
-      console.log($scope.user);
-      $scope.userVisualizations = Visualizations.getByUser(itemID);
-      console.log($scope.userVisualizations);
-      $scope.userDatasets = Datasets.getByUser(itemID);
-      $scope.modal2.show();
-    };
-    $scope.closeUserModal = function() {
-      console.log('fecha modal');
-      $scope.modal2.hide();
-    };
-
     $ionicModal.fromTemplateUrl('templates/modals/user-list.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -266,11 +273,14 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
       $scope.modal1.remove();
-      $scope.modal2.remove();
       $scope.modal3.remove();
       $scope.modal4.remove();
       $scope.modal5.remove();
       $scope.popover.remove();
   });
+
+  //   $scope.openShare = function () {
+  //     window.plugins.socialsharing.share('This is my message', 'Subject string', null, 'http://www.mylink.com');
+  // }
 });
 

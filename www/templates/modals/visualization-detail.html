@@ -3,7 +3,7 @@
 	<ion-content id="dataset-modal" class="container">
 		<back-button ng-click="closeVisualizationModal()"></back-button>
   		<h2 class="list-title" style="margin-bottom: 10px">{{visualization.name}}</h2>
-		<img class="img-icon" style="right: 35px;" src="img/share.svg"/>
+		<img class="img-icon" style="right: 35px;" src="img/share.svg" ng-click="openShare(visualization.img)"/>
 		<img class="img-icon" src="img/more.svg" ng-click="openPopover($event)"/>
 
 		<div class="user-box" ng-click="openUserProfile(visualization.user.id); closeVisualizationModal()">

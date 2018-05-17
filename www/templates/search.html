@@ -43,25 +43,5 @@
     </ion-tab>
   </ion-tabs>
 
-
-    <!-- categorias -->
-    <!-- <div id="category-card-list" class="category-list">
-      <a class="card tappable" ng-repeat="categoria in categorias | orderBy: 'name' | filter: $parent.search as results" href="#/tab/categorias/{{categoria.id}}">
-        <img ng-src="{{categoria.icon}}"><br/>
-        <div class="card-title" ng-bind="categoria.name"></div>
-      </a>
-    </div> -->
-
-    <!-- estabelecimentos -->
-    <!-- <ion-list ng-show="results.length === 0">
-      <ion-item class="item-thumbnail-left" ng-repeat="estabelecimento in estabelecimentos | orderBy: '-checkin' | filter: $parent.search as results2" type="item-text-wrap" href="#/tab/categorias/{{categoria.id}}">
-        <img ng-src="{{estabelecimento.avatar}}">
-        <h2 ng-bind="estabelecimento.name"></h2>
-        <p ng-bind="estabelecimento.checkin"></p>
-    </ion-list> -->
-
-    <!-- no results -->
-    <ion-item ng-if="results.length === 0 && results2.length === 0">No results found </ion-item>
-
   </ion-content>
 </ion-view>

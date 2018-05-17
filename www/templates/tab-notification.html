@@ -1,8 +1,10 @@
-<ion-view view-title="Notificações" hide-nav-bar="true">
+<ion-view view-title="Notificações" hide-nav-bar="false">
+  <ion-nav-title align="center">
+    Notificações
+  </ion-nav-title>
 
   <!-- content -->
   <ion-content class="container" has-bouncing="true">
-  	<h2>Notificações</h2>
     <ion-refresher on-refresh="refreshNotifications()" pulling-icon="false"></ion-refresher>
 
     <div id="notification-card-list">

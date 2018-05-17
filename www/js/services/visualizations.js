@@ -64,13 +64,13 @@ services.factory('Visualizations', function() {
     comments: [{
       user: flavio,
       text: 'Os dados parecem estar incorretos!',
-      time: '4d',
+      time: '4h',
       likes: 3,
       liked: false
     },{
       user: glivia,
       text: 'Gostei bastante, muito útil',
-      time: '4d',
+      time: '1d',
       likes: 9,
       liked: true
     }],
@@ -81,7 +81,7 @@ services.factory('Visualizations', function() {
     name: 'Indicadores sobre Aquicultura familiar',
     description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
-    user: flavio,
+    user: ismael,
     img: img03,
     thumb: '',
     follow: true,
@@ -110,7 +110,7 @@ services.factory('Visualizations', function() {
     tag: 3
   }, {
     id: 3,
-    name: 'Visualização 03',
+    name: 'Valor arrecadado',
     description: 'Valor arrecadado pelo imposto CPMF ao longo dos anos',
     color: '',
     user: glivia,
@@ -211,7 +211,7 @@ services.factory('Visualizations', function() {
     follow: false,
     liked: true,
     likes: [ana, glivia, ismael],
-    comments: [{}],
+    comments: [],
     datasets: [{}],
     tag: 3
   }];

@@ -33,16 +33,36 @@ h4 {
     font-size: 30px;
 }
 
+ion-header-bar {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	font-family: 'Roboto', sans-serif !important;
+    letter-spacing: 1.3px;
+}
+/* ion-view#account ion-header-bar {
+	box-shadow: none !important;
+} */
+
+/* .tabs-striped.tabs-light .tabs {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+
+.platform-android .bar .title {
+    font-size: 20px;
+    line-height: 50px;
+    font-weight: 300;
+}
+
+.button-clear.button-clear {
+    color: #444;
+}
+
+#account.bar.bar-header {
+	box-shadow: none !important;
+}
+
 .fa {
 	color:  #333;
 }
-/* ion-header-bar {
-  -webkit-box-shadow: 0 2px 1px 0 #d6d6d6;
-  -moz-box-shadow: 0 2px 1px 0 #d6d6d6;
-  -ms-box-shadow: 0 2px 1px 0 #d6d6d6;
-  -o-box-shadow: 0 2px 1px 0 #d6d6d6;
-  box-shadow: 0 2px 1px 0 #d6d6d6;
-} */
 
 .button-icon .icon {
 	color:  #333;
@@ -135,6 +155,7 @@ h4 {
 #notification-card-list .item .time {
 	float: right;
     font-size: 12px;
+    color: #8c8f91;
 }
 
 #notification-card-list .item .name {
@@ -185,6 +206,7 @@ h4 {
 
 .text-box {
 	padding: 0 10px;
+	font-size: 15px;
 }
 
 .search-list {
@@ -407,11 +429,13 @@ hr {
  }
 
 .left-buttons .avatar {
- 	width: 42px;
+    width: 40px;
     border-radius: 50%;
     border: 1px solid #333;
-    height: 42px;
- }
+    height: 40px;
+    margin-top: -3px;
+    margin-left: -2px;
+}
 
  .no-shadow {
   -webkit-box-shadow: none;
@@ -501,7 +525,7 @@ hr {
 }
 
 .popover {
-	height: 180px;
+	height: 227px;
     width: 167px ;
 }
 
@@ -675,10 +699,11 @@ hr {
  }
 
 .button-box .button {
-	font-size: 14px;
+	font-size: 13px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    width: 40% !important;
+    width: 45% !important;
+    line-height: 15px;
 }
 
  .button-box .popup-ok {
@@ -687,6 +712,7 @@ hr {
 }
 
 .popup-cancel {
+	font-size: 11px !important;
 	box-shadow: none;
     background: transparent;
     color: #333;
@@ -724,4 +750,91 @@ hr {
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.no-result {
+	text-align: center;
+    margin-top: 30%;
+    color: #ccc !important;
+}
+
+.no-result img {
+	width: 35%;
+}
+
+.no-result h4 {
+	font-size: 25px;
+}
+
+.no-result h3 {
+	font-size: 14px;
+    text-transform: none;
+    line-height: 19px;
+}
+
+.no-results i {
+	font-size: 16pt;
+}
+
+#small-card.item img, #big-card.item img {
+    max-width: 37px !important;
+    max-height: 37px !important;
+    left: 4px;
+    top: 4px;
+}
+
+#small-card.item p, #big-card.item p {
+	white-space: normal;
+	width: 90%;
+	margin-bottom: 0;
+}
+
+#small-card.item .time, #big-card.item .time {
+	align-self: flex-start;
+    font-size: 12px;
+    color: #8c8f91;
+}
+
+#big-card.item .name {
+	font-weight: bold;
+}
+
+#small-card.item.item-avatar, #big-card.item.item-avatar {
+	padding: 8px;
+	padding-left: 50px;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popup-container .popup {
+	background-color: #fff;
+}
+
+#login .btn-cadastro {
+	background: transparent;
+    border: 1px solid #2AC9AA;
+    color: #2AC9AA;
+    font-size: 13px;
+}
+
+#login h3 {
+	font-size: 9px;
+    text-align: center;
+}
+
+.popup-title {
+	font-family: 'Roboto', sans-serif !important;
+    letter-spacing: 1px;
+
+}
+
+.popup-head {
+	padding: 6px !important;
+}
+
+#login p {
+	text-align: center;
+    color: #444;
 }

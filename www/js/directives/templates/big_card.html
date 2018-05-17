@@ -1,0 +1,19 @@
+<div id="top-visualization" class="card explore-card" ng-click="openVisualizationModal(item.visualization.id); $event.stopPropagation()">
+
+  <div id="big-card" class="item item-avatar">
+    <img ng-src="{{item.user.avatar}}" ng-click="openUserProfile(item.user.id); $event.stopPropagation()">
+    <p><span class="name"  ng-click="openUserProfile(item.user.id); $event.stopPropagation()">{{item.user.name}}</span>{{item.action}}</p>
+    <span class="time">{{item.time}}</span>
+  </div>
+
+  <img ng-src="{{item.img}}">
+  <div class="text-box">
+    <span>{{item.visualization.name}}</span>
+  </div>
+  <hr>
+  <div class="action-box">
+      <p ng-click="item.visualization.liked = !item.visualization.liked; $event.stopPropagation()"><i class="fa" aria-hidden="true" ng-class="item.visualization.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> {{item.visualization.likes.length}}</p>
+      <p><i class="fa fa-comment-o" aria-hidden="true"></i> {{item.visualization.comments.length}}</p>
+    </div>
+  </div>
+</div>

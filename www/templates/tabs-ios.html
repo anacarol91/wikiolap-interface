@@ -11,7 +11,7 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Timeline Tab -->
-  <ion-tab title="Timeline" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/timeline">
+  <ion-tab ng-if="logado" title="Feed" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/timeline">
     <ion-nav-view name="tab-timeline"></ion-nav-view>
   </ion-tab>
 
@@ -21,12 +21,17 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Notification Tab -->
-  <ion-tab title="Notificações" icon-off="ion-ios-bell-outline" icon-on="ion-ios-bell" href="#/tab/notification" badge="2">
+  <ion-tab ng-if="logado" title="Notificações" icon-off="ion-ios-bell-outline" icon-on="ion-ios-bell" href="#/tab/notification" badge="2">
     <ion-nav-view name="tab-notification"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab title="Conta" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/account">
+  <ion-tab ng-if="logado" title="Conta" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Account Tab -->
+  <ion-tab ng-if="!logado" title="Conta" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" ng-click="showLogin()">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 

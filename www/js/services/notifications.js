@@ -36,7 +36,7 @@ var ana = {
   }, {
    id: 1,
     user: ismael,
-    action: ' curtiu uma visualização que você segue.',
+    action: ' curtiu sua visualização.',
     time: '1h',
     visualization: {
       id: 1
@@ -52,7 +52,7 @@ var ana = {
   }, {
     id: 3,
     user: flavio,
-    action: ' comentou em uma visualização que você segue.',
+    action: ' comentou em uma visualização.',
     time: '2d',
     visualization: {
       id: 3

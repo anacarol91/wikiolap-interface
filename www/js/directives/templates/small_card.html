@@ -1,0 +1,7 @@
+<div id="notification-card-list" style="margin-bottom: 15px;">
+    <div id="small-card" class="item item-avatar" ng-click="openDatasetModal(item.visualization.id); $event.stopPropagation()">
+      <img ng-src="{{item.user.avatar}}" ng-click="openUserProfile(item.user.id); $event.stopPropagation()">
+      <p><span class="name"  ng-click="openUserProfile(item.user.id); $event.stopPropagation()">{{item.user.name}}</span>{{item.action}}</p>
+      <span class="time">{{item.time}}</span>
+    </div>
+  </div>

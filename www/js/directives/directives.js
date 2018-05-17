@@ -122,6 +122,28 @@ app.directive('autoFocus', function($timeout) {
   };
 })
 
+.directive('bigCard', function () {
+  return {
+    restrict: 'E',
+    controller: 'MainCtrl',
+    templateUrl: 'js/directives/templates/big_card.html',
+    scope:{
+        item: "=item"
+    }
+  };
+})
+
+.directive('smallCard', function () {
+  return {
+    restrict: 'E',
+    controller: 'MainCtrl',
+    templateUrl: 'js/directives/templates/small_card.html',
+    scope:{
+        item: "=item"
+    }
+  };
+})
+
 .directive('backButton', function () {
   return {
     restrict: 'AE',

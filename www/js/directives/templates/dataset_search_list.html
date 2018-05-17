@@ -8,7 +8,7 @@
 </span>
 
 <h3 ng-if="!$parent.search.name">Todos</h3>
-<h3 ng-if="$parent.search.name">Resultados</h3>
+<h3 ng-if="$parent.search.name && results.length !== 0">Resultados</h3>
 
 <div ng-show="results.length !== 0" class="search-list" ng-repeat="item in list | orderBy: 'name' | filter: $parent.search as results" ng-click="openDatasetModal(item.id, false)">
 	<p ng-bind="item.name"></p>
@@ -16,4 +16,8 @@
 </div>
 
 <!-- no results -->
-<ion-item ng-if="results.length === 0">No results found </ion-item>
+<div class="no-result" ng-if="results.length === 0">
+  <img ng-src="img/search.svg" alt="">
+  <h4>Não encontramos nenhum resultado.</h4>
+  <h3>Você pode criar uma vizualização clicando no ícone <span><i class="icon ion-ios-plus-outline"></i></span> ou acessar <a>www.wikiolap.com</a> para fazer o upload de um dataset.</h3>
+</div>

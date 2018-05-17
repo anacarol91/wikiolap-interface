@@ -45,7 +45,7 @@ services.factory('Datasets', function() {
     description: 'Anualmente, o Inep realiza a coleta de dados sobre a educação superior, com o objetivo de oferecer informações detalhadas sobre a situação atual e as grandes tendências do setor, tanto à comunidade acadêmica quanto à sociedade em geral.',
     creation: '26/03/2012',
     data: previaDados,
-    user: glivia,
+    user: ana,
     tags: '#educação',
     visualizations: 5
   },

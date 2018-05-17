@@ -1,0 +1,45 @@
+<div id="login">
+
+	<p ng-if="cadastro">Cadastre-se para criar visualizações e muito mais!</p>
+
+	<form id="popup-form" name="loginForm" novalidate>
+	    <div class="list">
+		  <label  ng-if="cadastro" class="item item-input item-floating-label" ng-class="{ 'has-error': loginForm.name.$touched && loginForm.name.$invalid }">
+		    <span class="input-label">Nome</span>
+		    <input type="text" placeholder="Nome" name="name" ng-model="name">
+		  </label>
+		  <div class="has-error" ng-messages="loginForm.name.$error" ng-if="loginForm.name.$touched">
+	        <p ng-message="required">Campo obrigatório.</p>
+	   	  </div>
+
+	   	  <label class="item item-input item-floating-label" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+		    <span class="input-label">E-mail</span>
+		    <input type="email" placeholder="E-mail" name="email" ng-model="email">
+		  </label>
+		  <div class="has-error" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
+	        <p ng-message="required">Campo obrigatório.</p>
+	        <p ng-message="email">E-mail inválido.</p>
+	   	  </div>
+
+	   	  <label class="item item-input item-floating-label" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+		    <span class="input-label">Senha</span>
+		    <input type="password" placeholder="Senha" name="password" ng-model="password">
+		  </label>
+		  <div class="has-error" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+	        <p ng-message="required">Campo obrigatório.</p>
+	   	  </div>
+		</div>
+	</form>
+
+	<div ng-if="cadastro" class="button-box">
+		<button class="button popup-cancel" ng-click="changeLogin()">Já sou <br>cadastrado</button>
+		<button class="button btn-cadastro" ng-click="doLogin()">Cadastre-se</button>
+	</div>
+
+	<div ng-if="!cadastro" class="button-box">
+		<button class="button popup-cancel" ng-click="changeLogin()">Ainda não sou <br>cadastrado</button>
+		<button class="button btn-cadastro" ng-click="doLogin()">Entrar</button>
+	</div>
+
+	<h3  ng-if="cadastro">Ao se cadastrar, você concorda com nossos <b>Termos de Uso</b> e <b>Política de Dados</b>.</h3>
+</div>

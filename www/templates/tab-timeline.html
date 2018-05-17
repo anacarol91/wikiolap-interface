@@ -1,20 +1,24 @@
-<ion-view view-title="Trend">
+<ion-view view-title="Feed" hide-nav-bar="false">
+  <ion-nav-title align="center">
+    WikiOlap
+  </ion-nav-title>
 
-	<ion-nav-buttons side="right">
-	  <search-bar ng-model="search"></search-bar>
-	</ion-nav-buttons>
+  <!-- content -->
+  <ion-content class="container" has-bouncing="true">
+    <ion-refresher on-refresh="refreshTimeline()" pulling-icon="false"></ion-refresher>
 
-  <ion-content padding-vertical has-bouncing="true">
-  	<ion-refresher on-refresh="refreshEstabelecimentos()" pulling-icon="false"></ion-refresher>
+    <big-card item="timeline[0]"></big-card>
+    <big-card item="timeline[1]"></big-card>
+    <small-card item="timeline[5]"></small-card>
+    <big-card item="timeline[2]"></big-card>
+    <small-card item="timeline[3]"></small-card>
+    <big-card item="timeline[4]"></big-card>
 
-  	<!-- estabelecimentos-->
-    <ion-list id="events-card-list">
-      <a class="card item item-thumbnail-left tappable estab-adjust" type="item-text-wrap" ng-repeat="estabelecimento in estabelecimentos | orderBy:'-checkin' | filter: search.txt" href="#/tab/categorias/{{categoria.id}}">
-        <img ng-src="{{estabelecimento.avatar}}">
-        <h2 ng-bind="estabelecimento.name"></h2>
-        <p ng-bind="estabelecimento.checkin"></p>
-      </a>
-    </ion-list>
+    <!-- <big-card item="timeline[0]"></big-card>
+    <big-card item="timeline[1]"></big-card>
+    <small-card item="timeline[3]"></small-card>
+    <big-card item="timeline[4]"></big-card>
+    <small-card item="timeline[5]"></small-card> -->
 
   </ion-content>
 </ion-view>

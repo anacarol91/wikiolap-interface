@@ -74,6 +74,16 @@ app
     }
   })
 
+  .state('tab.timeline-profile', {
+    url: '/timeline/profile',
+    views: {
+      'tab-timeline': {
+        templateUrl: 'templates/user-profile.html',
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
   .state('tab.explore', {
       url: '/explore',
       views: {

@@ -1,4 +1,4 @@
-<ion-view id="account" view-title="Minha Conta" hide-nav-bar="false">
+<ion-view  id="account" view-title="Minha Conta" hide-nav-bar="false">
 
   <ion-nav-title>
     Minha Conta
@@ -16,60 +16,27 @@
   <ion-tabs id="search-tabs" class="tabs-top tabs-light tabs-striped">
       <ion-tab title="VISUALIZAÇÕES" >
         <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
-          <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
           <visualization-card-list list="myVisualizations"></visualization-card-list>
         </ion-content>
       </ion-tab>
 
       <ion-tab title="CURTIDAS">
         <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
-          <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
           <visualization-card-list list="myLiked"></visualization-card-list>
         </ion-content>
       </ion-tab>
 
       <ion-tab title="SEGUIDAS">
         <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
-          <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
           <visualization-card-list list="myFollowed"></visualization-card-list>
         </ion-content>
       </ion-tab>
 
       <ion-tab title="DATASETS">
         <ion-content class="container has-tabs tab-adjust" has-bouncing="true">
-          <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
           <dataset-card-list list="myDatasets"></dataset-card-list>
         </ion-content>
       </ion-tab>
     </ion-tabs>
 
-  <!-- content -->
-  <!-- <ion-content id="account-menu" class="container" has-bouncing="false">
-    <ul>
-      <li ng-click="openUserModal(0)" class="item-box">
-        <img class="avatar" ng-src="{{mainUser.avatar}}">
-        <p>Meu Perfil</p>
-      </li>
-      <li class="item-box">
-        <img class="avatar" src="img/settings.png">
-        <p>Configurações</p>
-      </li>
-      <li ng-click="openAccountListModal('visualizations')" class="item-box">
-      <img class="avatar" src="img/chart.png">
-        <p>Minhas Visualizações</p></li>
-      <li ng-click="openAccountListModal('datasets')" class="item-box">
-      <img class="avatar" src="img/database.png">
-        <p>Meus Datasets</p>
-      </li>
-      <li ng-click="openAccountListModal('followed')" class="item-box">
-      <img class="avatar" src="img/feed.png"">
-        <p>Visualizações Seguidas</p>
-      </li>
-      <li ng-click="openAccountListModal('liked')" class="item-box">
-      <img class="avatar" src="img/like.png">
-        <p>Visualizações Curtidas</p>
-      </li>
-    </ul>
-
-  </ion-content> -->
 </ion-view>

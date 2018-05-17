@@ -15,32 +15,32 @@
     <ion-refresher on-refresh="refreshAll()" pulling-icon="false"></ion-refresher>
 
     <div class="explore-title">
-      <h4>Visualizações mais <br>curtidas</h4>
+      <h4 ng-click="showLogin()">Visualizações mais <br>curtidas</h4>
       <a href="#/tab/explore/list/Visualizações">VER TODOS</a>
     </div>
 
-    <div id="top-visualization" class="card explore-card" ng-repeat="i in visualizations | orderBy: '-likes.length'" item="i" ng-if="$first" ng-click="openVisualizationModal(i.id)" >
+    <div id="top-visualization" class="card explore-card" ng-repeat="i in visualizations | orderBy: '-likes.length'" item="i" ng-if="$first" ng-click="openVisualizationModal(i.id); $event.stopPropagation()">
       <img ng-src="{{i.img}}">
       <div class="text-box">
         <span>{{i.name}}</span>
       </div>
       <hr>
       <div class="action-box">
-          <p ng-click="i.liked = !i.liked"><i class="fa" aria-hidden="true" ng-class="i.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> {{i.likes.length}}</p>
+          <p ng-click="i.liked = !i.liked; $event.stopPropagation()"><i class="fa" aria-hidden="true" ng-class="i.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> {{i.likes.length}}</p>
           <p><i class="fa fa-comment-o" aria-hidden="true"></i> {{i.comments.length}}</p>
         </div>
       </div>
     </div>
 
     <ion-scroll id="visualization" direction="x" class="scrol-list square-cards">
-      <div id="visualization-card" class="card explore-card" ng-repeat="i in visualizations | orderBy: '-likes.length'" item="i" ng-hide="$first" ng-click="openVisualizationModal(i.id)" >
+      <div id="visualization-card" class="card explore-card" ng-repeat="i in visualizations | orderBy: '-likes.length'" item="i" ng-hide="$first" ng-click="openVisualizationModal(i.id); $event.stopPropagation()">
         <img ng-src="{{i.img}}">
         <div class="text-box">
           <span>{{i.name}}</span>
         </div>
         <hr>
         <div class="action-box">
-          <p ng-click="i.liked = !i.liked"><i class="fa" aria-hidden="true" ng-class="i.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> {{i.likes.length}}</p>
+          <p ng-click="i.liked = !i.liked; $event.stopPropagation()"><i class="fa" aria-hidden="true" ng-class="i.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> {{i.likes.length}}</p>
           <p><i class="fa fa-comment-o" aria-hidden="true"></i> {{i.comments.length}}</p>
         </div>
       </div>
