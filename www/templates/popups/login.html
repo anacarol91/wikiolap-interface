@@ -2,6 +2,11 @@
 
 	<p ng-if="cadastro">Cadastre-se para criar visualizações e muito mais!</p>
 
+	<div class="button-box">
+		<button class="button button-icon icon ion-social-google google" ng-click="doLogin()"></button>
+		<button class="button button-icon icon ion-social-facebook fb" ng-click="doLogin()"></button>
+	</div>
+
 	<form id="popup-form" name="loginForm" novalidate>
 	    <div class="list">
 		  <label  ng-if="cadastro" class="item item-input item-floating-label" ng-class="{ 'has-error': loginForm.name.$touched && loginForm.name.$invalid }">

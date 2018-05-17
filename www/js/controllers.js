@@ -1,4 +1,4 @@
-controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users, Timeline) {
+controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users, Timeline) {
   $scope.$on('$ionicView.enter', function(e) {
     console.log('enter main controller');
 
@@ -25,7 +25,6 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
     $scope.name = '';
     $scope.description = '';
     $scope.cadastro = true;
-    $scope.logado = true;
 
     var userID = Users.getID();
     $scope.user = Users.get(userID);
@@ -38,7 +37,8 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
   }
 
   $scope.doLogin = function() {
-    $scope.logado = true;
+    $rootScope.logado = true;
+    $scope.openExplore();
     $scope.closeLogin();
   }
 
@@ -114,6 +114,7 @@ controllers.controller('MainCtrl', function($scope, $ionicPopup, $state, $stateP
   };
 
   $scope.showLogin = function() {
+    console.log('login porra');
     var loginPopup = $ionicPopup.prompt({
         scope: $scope,
         buttons: false,

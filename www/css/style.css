@@ -838,3 +838,13 @@ hr {
 	text-align: center;
     color: #444;
 }
+
+#login .fb {
+	border: 1px solid #3b5998;
+	color: #3b5998;
+}
+
+#login .google {
+	border: 1px solid #d9534f;
+	color: #d9534f;
+}

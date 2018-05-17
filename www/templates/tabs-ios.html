@@ -16,7 +16,7 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Visualization Tab -->
-  <ion-tab title="Postar" icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" href="#/tab/visualization">
+  <ion-tab ng-if="logado" title="Postar" icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" href="#/tab/visualization">
     <ion-nav-view name="tab-visualization"></ion-nav-view>
   </ion-tab>
 
@@ -28,6 +28,12 @@ navigation history that also transitions its views in and out.
   <!-- Account Tab -->
   <ion-tab ng-if="logado" title="Conta" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+
+  <!-- Visualization Tab -->
+  <ion-tab ng-if="!logado" title="Postar" icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" ng-click="showLogin()">
+    <ion-nav-view name="tab-visualization"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->

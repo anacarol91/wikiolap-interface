@@ -5,7 +5,7 @@ var services = angular.module('services', []);
 var controllers = angular.module('controllers', []);
 
 app
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -24,6 +24,8 @@ app
       }
     }
   });
+
+  $rootScope.logado = false;
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $compileProvider) {
@@ -53,7 +55,8 @@ app
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: "templates/tabs-ios.html"
+    templateUrl: "templates/tabs-ios.html",
+    controller: "MainCtrl"
     /*templateUrl: function() {
         if (ionic.Platform.isAndroid()) {
             return  "templates/tabs-android.html";
