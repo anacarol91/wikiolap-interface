@@ -4,7 +4,7 @@
   		<h2 class="list-title">Selecione uma tag</h2>
 		<button ng-click="closeTagList()" class="button button-icon icon ion-ios-close-outline modal-back-icon" style="color: #333 !important; right: 0; position: absolute"></button>
 
-		<div ng-if="!$first" class="search-list" ng-repeat="i in tags | orderBy: 'name'" ng-click="closeTagList()">
+		<div ng-if="!$first" class="search-list" ng-repeat="i in tags | orderBy: 'name'" ng-click="closeTagList(); openStep02(i.id)">
 			<p ng-bind="i.name"></p>
 			<hr>
 		</div>

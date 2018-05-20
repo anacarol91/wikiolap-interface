@@ -24,6 +24,9 @@
   		<img class="img-dados" ng-src="{{dataset.data}}"/>
 	</ion-content>
 
-  <ion-floating-button click="closeDatasetModal(); closeDatasetList(); openStep01()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
+  <ion-floating-button ng-if="!showAdd" click="closeDatasetModal(); closeDatasetList(); openStep01(dataset.id)" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
+  </ion-floating-button>
+
+  <ion-floating-button ng-if="showAdd" click="closeDatasetModal(); closeDatasetList(); openStep01(dataset.id)" has-footer="false" button-color="#2AC9AA" icon="ion-checkmark-round" icon-color="#fff">
   </ion-floating-button>
 </ion-modal-view>

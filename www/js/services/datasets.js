@@ -110,6 +110,12 @@ services.factory('Datasets', function() {
         }
       }
       return result;
+    },
+    setID: function(itemID) {
+      this.ds = itemID;
+    },
+    getID: function() {
+      return this.ds;
     }
   };
 })

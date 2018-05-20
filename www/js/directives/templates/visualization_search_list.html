@@ -1,6 +1,6 @@
 <span ng-if="!$parent.search.name">
 	<h3>Recentes</h3>
-	<div class="search-list" ng-repeat="item in list | orderBy: 'id' | limitTo: 1" ng-click="">
+	<div class="search-list" ng-repeat="item in list | orderBy: 'id' | limitTo: 1"  ng-click="openVisualizationModal(item.id)">
 		<p ng-bind="item.name"></p>
 		<hr>
 	</div>
@@ -10,7 +10,7 @@
 <h3 ng-if="!$parent.search.name">Todos</h3>
 <h3 ng-if="$parent.search.name && results.length !== 0">Resultados</h3>
 
-<div ng-show="results.length !== 0" class="search-list" ng-repeat="item in list | orderBy: 'name' | filter: $parent.search as results" ng-click="">
+<div ng-show="results.length !== 0" class="search-list" ng-repeat="item in list | orderBy: 'name' | filter: $parent.search as results" ng-click="openVisualizationModal(item.id)">
 	<p ng-bind="item.name"></p>
 	<hr>
 </div>

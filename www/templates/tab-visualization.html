@@ -1,25 +1,29 @@
-<ion-view view-title="Criar Visualização" hide-nav-bar="true">
+<ion-view view-title="Criar Visualização" hide-nav-bar="false">
+
+  <ion-nav-title align="center">
+    Criar Visualização
+  </ion-nav-title>
 
   <ion-content id="add-visualization" class="container" has-bouncing="true">
     <div class="nav-box">
       <button class="button button-icon icon ion-ios-arrow-back" style="visibility: hidden"></button>
       <ul class="list-unstyled multi-steps">
-        <li class="is-active">DATASETS</li>
-        <li>INFORMAÇÕES</li>
-        <li>EIXOS</li>
+        <li ng-click="openStep01()" class="is-active">DATASETS</li>
+        <li ng-click="openStep02()">INFORMAÇÕES</li>
+        <li ng-click="openStep03()">EIXOS</li>
       </ul>
       <button class="button button-icon icon ion-ios-arrow-forward" ng-click="openStep02()"></button>
     </div>
 
     <h4 style="margin: 35px 0;">Escolha um ou mais<br>datasets</h4>
 
-    <div class="ds-card">
+    <div class="ds-card" ng-repeat="ds in datasets" ng-if="ds.id === chosenDS">
       <div id="notification-card-list">
-        <div class="item adjust" ng-if="$first" ng-repeat="ds in datasets" ng-click="openDatasetModal(ds.id)">
+        <div class="item adjust"  style="  width: auto;" ng-click="openDatasetModal(ds.id)">
           <p ng-bind="ds.name"></p>
         </div>
       </div>
-      <i class="delete icon ion-ios-trash" ng-click="showDelete()"></i>
+      <i class="delete icon ion-ios-trash" ng-click="openStep01()"></i>
     </div>
 
     <div class="icon-box" ng-click="openDatasetList()">

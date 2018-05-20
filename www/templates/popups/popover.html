@@ -1,13 +1,13 @@
 <ion-popover-view>
     <ion-content class="container">
       <div class="search-list">
-		<p>Seguir</p>
+		<p ng-click="closePopover()">Seguir</p>
 		<hr>
-		<p ng-click="openDatasetModal(2, false)">Ver Dataset</p>
+		<p ng-click="openDatasetModal(2, false); closePopover()">Ver Dataset</p>
 		<hr>
-		<p>Copiar link</p>
+		<p ng-click="closePopover()">Copiar link</p>
 		<hr>
-		<p>Denunciar</p>
+		<p ng-click="closePopover()">Denunciar</p>
 	</div>
     </ion-content>
   </ion-popover-view>

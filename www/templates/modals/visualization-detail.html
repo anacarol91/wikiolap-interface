@@ -3,7 +3,7 @@
 	<ion-content id="dataset-modal" class="container">
 		<back-button ng-click="closeVisualizationModal()"></back-button>
   		<h2 class="list-title" style="margin-bottom: 10px">{{visualization.name}}</h2>
-		<img class="img-icon" style="right: 35px;" src="img/share.svg" ng-click="openShare(visualization.img)"/>
+		<img class="img-icon" style="right: 35px;" src="img/share.svg" ng-click="openShare(visualization)"/>
 		<img class="img-icon" src="img/more.svg" ng-click="openPopover($event)"/>
 
 		<div class="user-box" ng-click="openUserProfile(visualization.user.id); closeVisualizationModal()">
@@ -43,11 +43,25 @@
   			<i ng-click="i.liked = !i.liked" class="fa comment-like" aria-hidden="true" ng-class="i.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i>
   		</div>
 
+  		<div ng-if="comentou" class="comment-box">
+  			<img class="avatar" ng-src="{{mainUser.avatar}}" style="align-self: baseline;" ng-click="openUserProfile(mainUser.id); closeVisualizationModal()">
+  			<div class="text-box">
+				<p ng-bind="mainUser.name" class="user-name" ng-click="openUserProfile(mainUser.id); closeVisualizationModal()"></p>
+				<p ng-bind="comment"></p>
+				<div class="time-box">
+					<h3 style="margin-right: 20px;">0m</h3>
+					<h3>0 curtidas</h3>
+				</div>
+				<hr>
+  			</div>
+  			<i ng-click="liked = !liked" class="fa comment-like" aria-hidden="true" ng-class="liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i>
+  		</div>
+
   		<div id="comment-input" class="item item-input-inset">
 		    <label class="item-input-wrapper">
-		      <textarea placeholder="Adicione um comentário..."></textarea>
+		      <textarea placeholder="Adicione um comentário..." ng-model="comment"></textarea>
 		    </label>
-		    <button class="button button-small">
+		    <button ng-click="comentou = true" class="button button-small">
 		      Publicar
 		    </button>
 		  </div>

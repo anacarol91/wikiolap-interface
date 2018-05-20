@@ -29,24 +29,28 @@ services.factory('Users', function() {
     id: ana.id,
     name: ana.name,
     avatar: ana.avatar,
-    following: [glivia, ismael, flavio],
+    follow: false,
+    following: [glivia, flavio],
     followers: [glivia, ismael, flavio]
   }, {
     id: glivia.id,
     name: glivia.name,
     avatar: glivia.avatar,
+    follow: true,
     following: [ana, ismael, flavio],
     followers: [ana, ismael, flavio]
   }, {
     id: ismael.id,
     name: ismael.name,
     avatar: ismael.avatar,
+    follow: false,
     following: [ana, glivia, flavio],
     followers: [ana, glivia, flavio]
   }, {
     id: flavio.id,
     name: flavio.name,
     avatar: flavio.avatar,
+    follow: true,
     following: [ana, glivia, ismael],
     followers: [ana, glivia, ismael]
   }];
@@ -72,6 +76,5 @@ services.factory('Users', function() {
     getID: function() {
       return this.user;
     }
-
   };
 })

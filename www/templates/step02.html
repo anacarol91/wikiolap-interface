@@ -1,33 +1,38 @@
-<ion-view view-title="Criar Visualização" hide-nav-bar="true">
+<ion-view view-title="Criar Visualização" hide-nav-bar="false">
+
+  <ion-nav-title align="center">
+    Criar Visualização
+  </ion-nav-title>
 
   <ion-content id="add-visualization" class="container" has-bouncing="true">
+    <form name="infoForm"  novalidate>
+
   	<div class="nav-box">
-      <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="openStep01()"></button>
       <ul class="list-unstyled multi-steps">
-        <li>DATASETS</li>
-        <li class="is-active">INFORMAÇÕES</li>
-        <li>EIXOS</li>
+        <li ng-click="openStep01()">DATASETS</li>
+        <li ng-click="openStep02()" class="is-active">INFORMAÇÕES</li>
+        <li ng-click="openStep03()">EIXOS</li>
       </ul>
-      <button class="button button-icon icon ion-ios-arrow-forward" type="submit" ng-disabled="infoForm.$invalid" ng-click="openStep03()"></button>
+      <button class="button button-icon icon ion-ios-arrow-forward" type="submit" ng-disabled="infoForm.$invalid" ng-click="openStep03()""></button>
     </div>
 
     <h4 style="margin:35px 0 20px"> Preencha as informações da visualização</h4>
 
-    <form name="infoForm" ng-submit="openStep03(infoForm.$invalid)" novalidate>
 	    <div class="list">
-		  <label class="item item-input item-floating-label" ng-class="{ 'has-error': infoForm.name.$touched && infoForm.name.$invalid }">
+		  <label class="item item-input item-floating-label" ng-class="{ 'has-error': infoForm.name.$invalid }">
 		    <span class="input-label">Nome</span>
 		    <input type="text" placeholder="Nome" name="name" ng-model="name" required>
 		  </label>
-		  <div class="has-error" ng-messages="infoForm.name.$error" ng-if="infoForm.name.$touched">
+		  <div class="has-error" ng-messages="infoForm.name.$error" ng-if="infoForm.name.$invalid">
 	        <p ng-message="required">Campo obrigatório.</p>
 	   	  </div>
 
-		  <label class="item item-input item-floating-label"  ng-class="{ 'has-error': infoForm.description.$touched && infoForm.description.$invalid }">
+		  <label class="item item-input item-floating-label"  ng-class="{ 'has-error': infoForm.description.$invalid }">
 		    <span class="input-label">Descrição</span>
 		    <input type="text" placeholder="Descrição" name="description" ng-model="description" required>
 		  </label>
-		  <div class="has-error" ng-messages="infoForm.description.$error" ng-if="infoForm.description.$touched">
+		  <div class="has-error" ng-messages="infoForm.description.$error" ng-if="infoForm.description.$invalid">
 	        <p ng-message="required">Campo obrigatório.</p>
 	   	  </div>
 
@@ -42,11 +47,11 @@
 	</form>
 
 	<h4 style="margin-top: 45px">Tags</h4>
-    <div class="ds-card" style="margin-bottom: 15px;">
-	    <div ng-if="$first" ng-repeat="tag in tags" class="tag-box">
+    <div  ng-repeat="tag in tags" ng-if="tag.id === chosenTag" class="ds-card" style="margin-bottom: 15px;">
+	    <div class="tag-box">
 	    {{tag.name}}
 		</div>
-      	<i ng-click="showDelete()" class="delete icon ion-ios-trash"></i>
+      	<i ng-click="openStep02()" class="delete icon ion-ios-trash"></i>
     </div>
 
     <div class="icon-box" ng-click="openTagList()">

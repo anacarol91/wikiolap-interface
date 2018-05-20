@@ -667,13 +667,13 @@ hr {
 
 #popup-form .item-select {
  	padding: 20px;
-    background-color: #f6f6f6;
+    background-color: #fff;
     margin-top: 35px;
  }
 
  #popup-form select {
  	left: 0;
-    background-color: #f6f6f6;
+    background-color: #fff;
     letter-spacing: 0.5px;
     color: #8c8f91;
     padding: 6px 0 5px 7px;
@@ -741,7 +741,7 @@ hr {
     min-height: 27px;
     margin-top: 8px;
     line-height: 27px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .follow-box {
@@ -847,4 +847,12 @@ hr {
 #login .google {
 	border: 1px solid #d9534f;
 	color: #d9534f;
+}
+
+#floating-button {
+	line-height: 70px !important;
+}
+
+#floating-button .icon.menu-icon {
+    font-size: 25px;
 }

@@ -37,6 +37,12 @@ services.factory('Tags', function() {
         }
       }
       return null;
+    },
+    setID: function(itemID) {
+      this.tag = itemID;
+    },
+    getID: function() {
+      return this.tag;
     }
   };
 })

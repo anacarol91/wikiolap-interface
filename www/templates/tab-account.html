@@ -1,7 +1,7 @@
-<ion-view  id="account" view-title="Minha Conta" hide-nav-bar="false">
+<ion-view  id="account" view-title="{{mainUser.name}}" hide-nav-bar="false">
 
-  <ion-nav-title>
-    Minha Conta
+  <ion-nav-title  ng-click="openUserProfile(0)">
+    {{mainUser.name}}
   </ion-nav-title>
 
   <ion-nav-buttons side="left">
@@ -9,8 +9,8 @@
   </ion-nav-buttons>
 
   <ion-nav-buttons side="right">
-    <search-bar ng-model="search"></search-bar>
-    <button class="button button-icon icon ion-gear-a"></button>
+    <!-- <search-bar ng-model="search"></search-bar> -->
+    <button ng-click="openSettings($event)" class="button button-icon icon ion-gear-a"></button>
   </ion-nav-buttons>
 
   <ion-tabs id="search-tabs" class="tabs-top tabs-light tabs-striped">

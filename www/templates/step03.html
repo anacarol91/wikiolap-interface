@@ -1,29 +1,35 @@
-<ion-view id="step03" view-title="Criar Visualização" hide-nav-bar="true">
+<ion-view id="step03" view-title="Criar Visualização" hide-nav-bar="false">
+
+  <ion-nav-title align="center">
+    Criar Visualização
+  </ion-nav-title>
 
   <ion-content id="add-visualization" class="container" has-bouncing="true">
   	<div class="nav-box">
-      <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="openStep02()"></button>
       <ul class="list-unstyled multi-steps"">
-        <li>DATASETS</li>
-        <li>INFORMAÇÕES</li>
-        <li class="is-active">EIXOS</li>
+        <li ng-click="openStep01()">DATASETS</li>
+        <li ng-click="openStep02()">INFORMAÇÕES</li>
+        <li ng-click="openStep03()" class="is-active">EIXOS</li>
       </ul>
       <!-- <button class="button button-icon icon ion-ios-checkmark-outline" ng-click="showConcluir()"></button> -->
-      <p ng-click="showConcluir()">POSTAR</p>
+      <p ng-if="eixoX.show && eixoY.show" ng-click="showConcluir()">POSTAR</p>
+      <p ng-if="!eixoX.show || !eixoY.show" ng-click="showError()">POSTAR</p>
+
 	  </div>
 
     <h4 style="margin:35px 0 25px">Configure os eixos da visualização</h4>
 
-  	<img src="img/grafico05.png"/>
+  	<img src="img/grafico05.PNG"/>
 
   	<h4>Eixo X</h4>
-    <div class="ds-card" style="margin-bottom: 20px;">
+    <div ng-if="eixoX.show" class="ds-card" style="margin-bottom: 20px;">
       <div id="notification-card-list" class="card-adjust">
         <div class="item adjust" ng-click="showEixoX()">
-          <p>Ano</p>
+          <p ng-bind="eixoX.name"></p>
         </div>
       </div>
-      <i ng-click="showDelete()" class="delete icon ion-ios-trash"></i>
+      <i ng-click="eixoX.show = false" class="delete icon ion-ios-trash"></i>
     </div>
 
     <div style="margin: 0 0 20px;" class="icon-box" ng-click="showEixoX()">
@@ -34,14 +40,14 @@
 
   	<h4 style="margin-top: 40px">Eixo Y</h4>
 
-    <div class="ds-card" style="margin-bottom: 20px;">
+    <div ng-if="eixoY.show" class="ds-card" style="margin-bottom: 20px;">
       <div id="notification-card-list" class="card-adjust" ng-click="showEixoY()">
         <div class="item adjust" style="padding: 5px;">
           <div class="color-square"></div>
-          <p>Receita Bruta</p>
+          <p ng-bind="eixoY.name"></p>
         </div>
       </div>
-      <i ng-click="showDelete()" class="delete icon ion-ios-trash"></i>
+      <i ng-click="eixoY.show = false" class="delete icon ion-ios-trash"></i>
     </div>
 
     <div class="icon-box" ng-click="showEixoY()">

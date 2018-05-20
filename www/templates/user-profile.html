@@ -24,7 +24,9 @@
 						<h3>Seguidores</h3>
 					</div>
 				</div>
-				<button class="button follow-btn">SEGUIR</button>
+				<button ng-if="user.id !== 0 && !user.follow" ng-click="user.follow = true" class="button follow-btn">SEGUIR</button>
+				<button ng-if="user.id !== 0 && user.follow" ng-click="user.follow = false" class="button follow-btn">DEIXAR DE SEGUIR</button>
+				<button ng-if="user.id === 0" class="button follow-btn">EDITAR PERFIL</button>
 			</div>
 		</div>
 	</ion-content>

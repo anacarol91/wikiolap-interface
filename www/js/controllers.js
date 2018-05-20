@@ -11,7 +11,11 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
     $scope.notifications = Notifications.all();
     $scope.users = Users.all();
     $scope.timeline = Timeline.all();
+
     $scope.mainUser = $scope.users[0];
+    $scope.comment = '';
+    $scope.liked = false;
+    $scope.comentou = false;
 
     $scope.listType = $stateParams.type;
     $scope.tag = Tags.get($stateParams.tagID);
@@ -30,6 +34,20 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
     $scope.user = Users.get(userID);
     $scope.userVisualizations = Visualizations.getByUser(userID);
     $scope.userDatasets = Datasets.getByUser(userID);
+
+    $scope.chosenDS = Datasets.getID();
+    console.log(Datasets.getID());
+    $scope.chosenTag = Tags.getID();
+
+    $scope.eixoX = {
+      show: false,
+      name: ''
+    }
+
+    $scope.eixoY = {
+      show: false,
+      name: ''
+    }
   });
 
   $scope.changeLogin = function() {
@@ -74,11 +92,13 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
   $scope.openSearch = function(){
     $state.go('tab.search');
   }
-  $scope.openStep01 = function(){
-    $state.go('tab.visualization');
+  $scope.openStep01 = function(itemID){
+    Datasets.setID(itemID);
+    $state.go('tab.visualization', {  }, { reload: true });
   }
-  $scope.openStep02 = function(){
-    $state.go('tab.step02');
+  $scope.openStep02 = function(itemID){
+    Tags.setID(itemID);
+    $state.go('tab.step02', {  }, { reload: true });
   }
   $scope.openStep03 = function(){
     $state.go('tab.step03');
@@ -111,6 +131,19 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
   };
   $scope.closePopover = function() {
     $scope.popover.hide();
+  };
+
+  $ionicPopover.fromTemplateUrl('templates/popups/settings.html', {
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover1 = popover;
+  });
+
+  $scope.openSettings = function($event) {
+    $scope.popover1.show($event);
+  };
+  $scope.closeSettings = function() {
+    $scope.popover1.hide();
   };
 
   $scope.showLogin = function() {
@@ -191,6 +224,15 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
 
       alertPopup.then(function(res) {
         $scope.openExplore();
+      });
+   };
+
+   $scope.showError = function() {
+      var alert1Popup = $ionicPopup.alert({
+         title: 'Por favor, configure o eixo X e o eixo Y'
+      });
+
+      alert1Popup.then(function(res) {
       });
    };
 
@@ -278,10 +320,12 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
       $scope.modal4.remove();
       $scope.modal5.remove();
       $scope.popover.remove();
+      $scope.popover1.remove();
   });
 
-  //   $scope.openShare = function () {
-  //     window.plugins.socialsharing.share('This is my message', 'Subject string', null, 'http://www.mylink.com');
-  // }
+    $scope.openShare = function (item) {
+      window.plugins.socialsharing.share('Visualização', 'Olha que legal essa visualização!', null, 'http://www.wikiolap.com');
+  }
+
 });
 

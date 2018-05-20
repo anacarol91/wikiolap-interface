@@ -2,7 +2,7 @@
     <div class="list">
 	  <label class="item item-input item-floating-label" ng-class="{ 'has-error': xForm.name.$touched && xForm.name.$invalid }">
 	    <span class="input-label">Rótulo</span>
-	    <input type="text" placeholder="Rótulo" name="name" ng-model="name">
+	    <input type="text" placeholder="Rótulo" name="name" ng-model="eixoY.name">
 	  </label>
 	  <div class="has-error" ng-messages="xForm.name.$error" ng-if="xForm.name.$touched">
         <p ng-message="required">Campo obrigatório.</p>
@@ -26,5 +26,5 @@
 <hr>
 <div class="button-box">
 	<button class="button popup-cancel" ng-click="closeEixoY()">Cancelar</button>
-	<button class="button popup-ok" ng-click="closeEixoY()">Salvar</button>
+	<button class="button popup-ok" ng-click="closeEixoY(); eixoY.show = true">Adicionar</button>
 </div>
