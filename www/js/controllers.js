@@ -1,4 +1,4 @@
-controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users, Timeline) {
+controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $state, $stateParams, $ionicModal, $ionicHistory, $ionicTabsDelegate, $ionicPopover, $anchorScroll, $location, $window, $ionicScrollDelegate, IonicClosePopupService, Tags, Datasets, Visualizations, Notifications, Users, Timeline) {
   $scope.$on('$ionicView.enter', function(e) {
     console.log('enter main controller');
 
@@ -86,7 +86,7 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
   };
 
   $scope.goBack = function() {
-    $ionicHistory.goBack();
+    $window.history.go(-1);
   }
 
   $scope.openSearch = function(){
@@ -110,6 +110,10 @@ controllers.controller('MainCtrl', function($scope, $rootScope, $ionicPopup, $st
   $scope.openExplore = function(){
     $state.go('tab.explore');
   }
+
+  $scope.gotoComment = function() {
+    $ionicScrollDelegate.scrollBottom();
+  };
 
   $scope.openUserProfile = function(itemID){
     let state = $state.current.name.split('-')[0] + '-profile';

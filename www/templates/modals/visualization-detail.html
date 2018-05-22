@@ -24,7 +24,7 @@
   			<h3>{{visualization.likes.length}} curtidas</h3>
 	  		<div class="action-box">
 	  			<p ng-click="visualization.liked = !visualization.liked"><i class="fa" aria-hidden="true" ng-class="visualization.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i> Curtir</p>
-	  			<p><i class="fa fa-comment-o" aria-hidden="true"></i> Comentar</p>
+	  			<p ng-click="gotoComment()"><i class="fa fa-comment-o" aria-hidden="true"></i> Comentar</p>
 	  		</div>
 	  	</div>
   		<hr>

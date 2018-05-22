@@ -8,11 +8,11 @@
     <form name="infoForm"  novalidate>
 
   	<div class="nav-box">
-      <button class="button button-icon icon ion-ios-arrow-back" ng-click="openStep01()"></button>
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
       <ul class="list-unstyled multi-steps">
         <li ng-click="openStep01()">DATASETS</li>
         <li ng-click="openStep02()" class="is-active">INFORMAÇÕES</li>
-        <li ng-click="openStep03()">EIXOS</li>
+        <li>EIXOS</li>
       </ul>
       <button class="button button-icon icon ion-ios-arrow-forward" type="submit" ng-disabled="infoForm.$invalid" ng-click="openStep03()""></button>
     </div>

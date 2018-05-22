@@ -1,5 +1,5 @@
 <div class="square-cards">
-  <div class="card" ng-repeat="i in list" ng-click="openDatasetModal(i.id, false)">
+  <div class="card" ng-repeat="i in list | orderBy: '-visualizations'" ng-click="openDatasetModal(i.id, false)">
     <img ng-src="{{i.img}}">
     <div class="text-box">
       <span>{{i.name}}</span>

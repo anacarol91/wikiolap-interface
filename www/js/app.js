@@ -25,7 +25,7 @@ app
     }
   });
 
-  $rootScope.logado = true; //TROCAR
+  $rootScope.logado = false; //TROCAR
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $compileProvider) {
